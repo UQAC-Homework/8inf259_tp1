@@ -3,10 +3,10 @@
 
 /// Class that allows to visit every element in a collection
 template <typename T>
-class IIVisitor
+class IVisitor
 {
 public:
-	virtual ~IIVisitor() = default;
+	virtual ~IVisitor() = default;
 
 	/// Visits the given element
 	virtual void visitElement(const T& element) const = 0;
