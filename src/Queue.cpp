@@ -53,3 +53,10 @@ bool Queue<T>::isEmpty() const
 	
 	return size == 0;
 }
+
+template <typename T>
+void Queue<T>::accept(const IIVisitor<T>& visitor) const
+{
+	for (const auto& element : elements)
+		visitor.visitElement(element);
+}

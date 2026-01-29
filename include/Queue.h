@@ -3,6 +3,8 @@
 
 #include <list>
 
+#include "IVisitor.h"
+
 /// Collection of objects as a first-in, first-out
 template <typename T>
 class Queue
@@ -29,7 +31,8 @@ public:
 	/// Determines if the collection is empty
 	[[nodiscard]] bool isEmpty() const;
 	
-	void accept(); // TODO: Implement
+	/// Accepts a visitor to visit every object in the collection
+	void accept(const IIVisitor<T>& visitor) const;
 };
 
 // template class Queue<int>;
