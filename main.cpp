@@ -1,7 +1,7 @@
-#include <iostream>
+#include "include/Vehicule.h"
 
 int main()
 {
-	std::cout << "Hello, World!" << std::endl;
+	Vehicule vehicule;
 	return 0;
 }
