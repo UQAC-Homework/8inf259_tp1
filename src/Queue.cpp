@@ -3,31 +3,53 @@
 #include <stdexcept>
 
 template <typename T>
-void Queue<T>::enqueue(T* item)
+Queue<T>::Queue()
 {
-	throw std::logic_error("Not implemented");
+	elements = std::list<T>();
 }
 
 template <typename T>
-T* Queue<T>::dequeue()
+Queue<T>::~Queue() = default;
+
+template <typename T>
+void Queue<T>::enqueue(T element)
 {
-	throw std::logic_error("Not implemented");
+	elements.push_back(element);
 }
 
 template <typename T>
-T* Queue<T>::peek() const
+T Queue<T>::dequeue()
 {
-	throw std::logic_error("Not implemented");
+	if (isEmpty())
+		throw std::logic_error("Tried to dequeue while empty.");
+	
+	const auto element = elements.front();
+	elements.pop_front();
+	
+	return element;
 }
 
 template <typename T>
-unsigned int Queue<T>::size() const
+T Queue<T>::peek() const
 {
-	throw std::logic_error("Not implemented");
+	if (isEmpty())
+		throw std::logic_error("Tried to peek while empty.");
+	
+	const auto element = elements.front();
+	
+	return element;
+}
+
+template <typename T>
+std::size_t Queue<T>::size() const
+{
+	return elements.size();
 }
 
 template <typename T>
 bool Queue<T>::isEmpty() const
 {
-	throw std::logic_error("Not implemented");
+	const auto size = this->size();
+	
+	return size == 0;
 }
