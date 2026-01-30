@@ -4,6 +4,8 @@
 /// All possible cardinal directions
 enum Direction : unsigned char
 {
+	NONE = 0,
+
 	NORTH = 1 << 0,
 	SOUTH = 1 << 1,
 	EAST = 1 << 2,
