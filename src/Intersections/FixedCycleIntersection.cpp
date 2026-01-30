@@ -15,7 +15,7 @@ void FixedCycleIntersection::updateCounter()
 		this->allowedDirections = EAST | WEST;
 }
 
-FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(
+FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads) : Intersection(
 	name)
 {
 	this->roads = roads;
@@ -31,7 +31,6 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 
 	for (const auto road : this->roads)
 	{
-		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto direction = road->getDirection();
 
 		if (direction & this->allowedDirections)

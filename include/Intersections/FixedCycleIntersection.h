@@ -1,5 +1,6 @@
 #ifndef INC_8INF259_TP1_FIXEDCYCLEINTERSECTION_H
 #define INC_8INF259_TP1_FIXEDCYCLEINTERSECTION_H
+#include <memory>
 #include <vector>
 
 #include "Intersection.h"
@@ -13,7 +14,7 @@
 class FixedCycleIntersection : public Intersection
 {
 	/// Every road processed by this intersection
-	std::vector<Road*> roads;
+	std::vector<std::shared_ptr<Road>> roads;
 
 	/// Directions allowed to cross
 	Direction allowedDirections;
@@ -25,7 +26,7 @@ class FixedCycleIntersection : public Intersection
 	void updateCounter();
 
 public:
-	explicit FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads);
+	explicit FixedCycleIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads);
 
 	std::vector<Vehicule> process() override;
 
