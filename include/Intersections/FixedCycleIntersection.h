@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Intersection.h"
+#include "../Direction.h"
 
 #define NORTH_SOUTH_CYCLE 3
 #define EAST_WEST_CYCLE 3
@@ -13,9 +14,9 @@ class FixedCycleIntersection : public Intersection
 {
 	/// Every road processed by this intersection
 	std::vector<Road*> roads;
-	
-	bool northSouthGoes = false;
-	bool eastWestGoes = false;
+
+	/// Directions allowed to cross
+	Direction allowedDirections;
 	
 	/// Counter of the current cycle
 	int cycleCounter = -1;

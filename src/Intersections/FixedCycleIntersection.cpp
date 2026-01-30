@@ -21,20 +21,15 @@ void FixedCycleIntersection::updateCounter()
 		this->cycleCounter = 0;
 	
 	if (this->cycleCounter < NORTH_SOUTH_CYCLE)
-	{
-		this->northSouthGoes = true;
-		this->eastWestGoes = false;
-	}
+		this->allowedDirections = static_cast<Direction>(NORTH | SOUTH);
 	else
-	{
-		this->northSouthGoes = false;
-		this->eastWestGoes = true;
-	}
+		this->allowedDirections = static_cast<Direction>(EAST | WEST);
 }
 
 FixedCycleIntersection::FixedCycleIntersection(const std::vector<Road*>& roads) : Intersection()
 {
 	this->roads = roads;
+	this->allowedDirections = NONE;
 }
 
 void FixedCycleIntersection::process()
@@ -46,9 +41,7 @@ void FixedCycleIntersection::process()
 		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto direction = road->getDirection();
 		
-		if (northSouthGoes && direction & (NORTH | SOUTH))
-			road->process();
-		else if (eastWestGoes && direction & (EAST | WEST))
+		if (direction & this->allowedDirections)
 			road->process();
 	}
 }
