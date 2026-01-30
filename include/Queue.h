@@ -15,7 +15,6 @@ private:
 	std::list<T> elements;
 public:
 	Queue();
-	~Queue();
 
 	/// Adds an object to the end of the collection
 	void enqueue(T element);

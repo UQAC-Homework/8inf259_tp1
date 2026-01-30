@@ -9,9 +9,6 @@ Queue<T>::Queue()
 }
 
 template <typename T>
-Queue<T>::~Queue() = default;
-
-template <typename T>
 void Queue<T>::enqueue(T element)
 {
 	elements.push_back(element);
