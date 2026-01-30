@@ -33,7 +33,7 @@ public:
 	[[nodiscard]] bool isEmpty() const;
 	
 	/// Accepts a visitor to visit every object in the collection
-	void accept(IVisitor<T>& visitor) const;
+	void accept(IVisitor<T>& visitor);
 };
 
 template class Queue<Vehicule>;

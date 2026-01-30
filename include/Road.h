@@ -24,7 +24,7 @@ public:
 	void process();
 	
 	/// Accepts a visitor to visit every vehicule
-	void accept(IVisitor<Vehicule>& visitor) const;
+	void accept(IVisitor<Vehicule>& visitor);
 };
 
 #endif //INC_8INF259_TP1_ROAD_H

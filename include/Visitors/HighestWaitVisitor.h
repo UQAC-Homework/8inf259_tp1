@@ -12,7 +12,7 @@ class HighestWaitVisitor : public IVisitor<Vehicule>
 	int highestWait = LOWEST_WAIT;
 public:
 	void clean() override;
-	void visitElement(const Vehicule& element) override;
+	void visitElement(Vehicule& element) override;
 	
 	/// Returns the highest wait collected
 	[[nodiscard]] int getHighestWait() const;

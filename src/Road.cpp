@@ -48,7 +48,7 @@ void Road::process()
 	std::cout << std::endl;
 }
 
-void Road::accept(IVisitor<Vehicule>& visitor) const
+void Road::accept(IVisitor<Vehicule>& visitor)
 {
 	vehicules.accept(visitor);
 }
