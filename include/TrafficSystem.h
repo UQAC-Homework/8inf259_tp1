@@ -26,5 +26,6 @@ public:
 	[[nodiscard]] size_t getTotalWaitTime() const;
 };
 
+// TODO: void displayState() : Affiche l'état de toutes les intersections.
 
 #endif //INC_8INF259_TP1_TRAFFICSYSTEM_H

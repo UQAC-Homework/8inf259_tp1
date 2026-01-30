@@ -23,4 +23,6 @@ public:
 	[[nodiscard]] virtual std::size_t count() const = 0;
 };
 
+// TODO: void display() : Affiche l'état de l'intersection.
+
 #endif //INC_8INF259_TP1_INTERSECTION_H
