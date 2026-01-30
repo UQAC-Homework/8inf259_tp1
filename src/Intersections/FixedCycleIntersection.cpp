@@ -31,7 +31,7 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 	std::vector<Vehicule> processedVehicules;
 	IncreaseWaitVisitor visitor;
 
-	for (const auto road : this->roads)
+	for (const auto& road : this->roads)
 	{
 		const auto direction = road->getDirection();
 

@@ -43,7 +43,7 @@ std::vector<Vehicule> FourStopIntersection::process()
 	IncreaseWaitVisitor visitor;
 	std::vector<Vehicule> processedVehicules;
 
-	for (const auto road : this->roads)
+	for (const auto& road : this->roads)
 	{
 		if (highPriorityRoad.has_value() && road == highPriorityRoad)
 		{
