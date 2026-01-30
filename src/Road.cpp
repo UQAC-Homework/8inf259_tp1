@@ -1,7 +1,5 @@
 #include "../include/Road.h"
 
-#include "../include/Visitors/NextVehiculeVisitor.h"
-
 Road::Road(const std::string& name, const Direction direction)
 {
 	this->name = name;

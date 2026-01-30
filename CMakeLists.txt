@@ -22,8 +22,6 @@ add_executable(8inf259_tp1 main.cpp
         src/Direction.cpp
         src/Intersections/PriorityIntersection.cpp
         include/Intersections/PriorityIntersection.h
-        src/Visitors/NextVehiculeVisitor.cpp
-        include/Visitors/NextVehiculeVisitor.h
         src/TrafficSystem.cpp
         include/TrafficSystem.h
 )
