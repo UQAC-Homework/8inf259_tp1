@@ -6,6 +6,22 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(8inf259_tp1 main.cpp
         src/Queue.cpp
         include/Queue.h
-        include/Visitor.h
-        src/Intersection.cpp
+        include/Visitors/Visitor.h
+        include/Intersections/Intersection.h
+        include/Intersections/FourStopIntersection.h
+        include/Road.h
+        include/Vehicule.h
+        include/Visitors/HighestWaitVisitor.h
+        src/Road.cpp
+        src/Vehicule.cpp
+        src/Intersections/FourStopIntersection.cpp
+        src/Visitors/HighestWaitVisitor.cpp
+        include/Intersections/FixedCycleIntersection.h
+        src/Intersections/FixedCycleIntersection.cpp
+        include/Direction.h
+        src/Direction.cpp
+        src/Intersections/PriorityIntersection.cpp
+        include/Intersections/PriorityIntersection.h
+        src/Visitors/NextVehiculeVisitor.cpp
+        include/Visitors/NextVehiculeVisitor.h
 )
