@@ -2,7 +2,7 @@
 #include "../../include/Intersections/Intersection.h"
 #include "../../include/Visitors/IncreaseWaitVisitor.h"
 
-Direction getDensestDirection(const std::vector<Road*>& roads)
+Direction getDensestDirection(const std::vector<std::shared_ptr<Road>>& roads)
 {
 	Direction densestDirection = NONE;
 	std::size_t highestDensity = 0;
@@ -50,7 +50,7 @@ void PriorityIntersection::updateCounter()
 	}
 }
 
-PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(
+PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads) : Intersection(
 	name)
 {
 	this->roads = roads;
