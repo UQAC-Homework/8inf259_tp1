@@ -4,12 +4,12 @@
 
 #include "Intersection.h"
 #include "../Direction.h"
+#include "../Road.h"
 
 #define NORTH_SOUTH_CYCLE 3
 #define EAST_WEST_CYCLE 3
 
-class Road;
-
+/// Intersection that uses a fixed cycle
 class FixedCycleIntersection : public Intersection
 {
 	/// Every road processed by this intersection

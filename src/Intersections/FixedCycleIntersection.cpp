@@ -1,7 +1,5 @@
 #include "../../include/Intersections/FixedCycleIntersection.h"
 
-#include "../../include/Road.h"
-
 void FixedCycleIntersection::updateCounter()
 {
 	this->cycleCounter++;
