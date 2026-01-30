@@ -6,7 +6,7 @@
 
 #define LOWEST_WAIT (-1)
 
-/// Visitor that collects the vehicule with the highest wait time
+/// Visitor that collects the highest wait time of a vehicule
 class HighestWaitVisitor : public IVisitor<Vehicule>
 {
 	int highestWait = LOWEST_WAIT;
