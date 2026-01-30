@@ -32,7 +32,6 @@ void PriorityIntersection::updateCounter()
 	}
 	else if (this->durationCounter >= MINIMAL_DURATION)
 	{
-		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 
 		if (currentDensestDirection != this->allowedDirections)
@@ -67,12 +66,10 @@ std::vector<Vehicule> PriorityIntersection::process()
 
 	for (const auto road : this->roads)
 	{
-		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto direction = road->getDirection();
 
 		if (direction & this->allowedDirections)
 		{
-			// ReSharper disable once CppTooWideScopeInitStatement
 			const auto processedVehicule = road->process();
 
 			if (processedVehicule.has_value())

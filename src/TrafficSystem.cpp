@@ -12,7 +12,6 @@ void TrafficSystem::process()
 {
 	for (const auto intersection : this->intersections)
 	{
-		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto currentProcessedVehicles = intersection->process();
 
 		for (auto currentVehicule : currentProcessedVehicles)
