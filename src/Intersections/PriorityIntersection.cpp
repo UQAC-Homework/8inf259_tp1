@@ -37,6 +37,7 @@ void PriorityIntersection::process()
 	}
 	else if (this->durationCounter >= MINIMAL_DURATION)
 	{
+		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 		
 		if (currentDensestDirection != this->allowedDirections)
