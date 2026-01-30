@@ -20,20 +20,13 @@ Direction getDensestDirection(const std::vector<Road*>& roads)
 	return densestDirection;
 }
 
-PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
-{
-	this->roads = roads;
-	this->allowedDirections = NONE;
-	this->durationCounter = 0;
-}
-
-std::vector<Vehicule> PriorityIntersection::process()
+void PriorityIntersection::updateCounter()
 {
 	if (this->durationCounter >= MAXIMAL_DURATION)
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 		
-		this->allowedDirections = currentDensestDirection;
+		this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
 		this->durationCounter = 0;
 	}
 	else if (this->durationCounter >= MINIMAL_DURATION)
@@ -43,7 +36,7 @@ std::vector<Vehicule> PriorityIntersection::process()
 		
 		if (currentDensestDirection != this->allowedDirections)
 		{
-			this->allowedDirections = currentDensestDirection;
+			this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
 			this->durationCounter = 0;
 		}
 	}
@@ -51,9 +44,21 @@ std::vector<Vehicule> PriorityIntersection::process()
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 		
-		this->allowedDirections = currentDensestDirection;
+		this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
 		this->durationCounter = 0;
 	}
+}
+
+PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
+{
+	this->roads = roads;
+	this->allowedDirections = NONE;
+	this->durationCounter = 0;
+}
+
+std::vector<Vehicule> PriorityIntersection::process()
+{
+	this->updateCounter();
 	
 	std::vector<Vehicule> processedVehicules;
 

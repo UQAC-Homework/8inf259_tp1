@@ -19,6 +19,10 @@ class PriorityIntersection : public Intersection
 	
 	/// Counter of the current duration
 	int durationCounter;
+	
+	/// Updates the traffic lights based off the next cycle
+	void updateCounter();
+	
 public:
 	explicit PriorityIntersection(const std::string& name, const std::vector<Road*>& roads);
 
