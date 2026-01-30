@@ -6,7 +6,7 @@
 
 #define LOWEST_WAIT (-1)
 
-/// Visitor that collects the highest wait time of a vehicule
+/// Visitor that finds the highest wait time of a vehicule
 class HighestWaitVisitor : public IVisitor<Vehicule>
 {
 	int highestWait = LOWEST_WAIT;
@@ -14,7 +14,7 @@ public:
 	void clean() override;
 	void visitElement(Vehicule& element) override;
 	
-	/// Returns the highest wait collected
+	/// Returns the highest wait found
 	[[nodiscard]] int getHighestWait() const;
 };
 
