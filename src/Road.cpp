@@ -25,7 +25,7 @@ std::size_t Road::count() const
 
 std::optional<Vehicule> Road::process()
 {
-	if (this->vehicules.isEmpty())
+	if (this->vehicules.empty())
 		return {};
 
 	const auto processedVehicule = this->vehicules.dequeue();

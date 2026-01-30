@@ -47,7 +47,7 @@ std::size_t Queue<T>::size() const
 }
 
 template <typename T>
-bool Queue<T>::isEmpty() const
+bool Queue<T>::empty() const
 {
 	const auto size = this->size();
 	

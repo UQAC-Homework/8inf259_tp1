@@ -30,7 +30,7 @@ public:
 	[[nodiscard]] std::size_t size() const;
 	
 	/// Determines if the collection is empty
-	[[nodiscard]] bool isEmpty() const;
+	[[nodiscard]] bool empty() const;
 	
 	/// Accepts a visitor to visit every object in the collection
 	void accept(IVisitor<T>& visitor);
