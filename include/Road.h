@@ -30,4 +30,8 @@ public:
 	void accept(IVisitor<Vehicule>& visitor);
 };
 
+// TODO: Vehicle* getNextVehicle() : Retourne et retire le premier véhicule.
+// TODO: void increaseAllWaitTimes() : Incrémente le temps d'attente de tous les véhicules.
+// TODO: void display() : Affiche l'état de la route.
+
 #endif //INC_8INF259_TP1_ROAD_H
