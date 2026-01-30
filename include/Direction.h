@@ -15,4 +15,7 @@ enum Direction : unsigned char
 /// Gets the opposite direction
 Direction operator!(Direction dir);
 
+/// Gets the combination of the directions
+Direction operator|(Direction direction1, Direction direction2);
+
 #endif //INC_8INF259_TP1_DIRECTION_H
