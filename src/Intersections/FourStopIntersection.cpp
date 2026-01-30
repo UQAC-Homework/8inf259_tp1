@@ -40,7 +40,11 @@ std::vector<Vehicule> FourStopIntersection::process()
 		return {};
 
 	const auto processedVehicule = highPriorityRoad->process();
-	return {processedVehicule};
+	
+	if (!processedVehicule.has_value())
+		return {};
+	
+	return {processedVehicule.value()};
 }
 
 std::size_t FourStopIntersection::count() const

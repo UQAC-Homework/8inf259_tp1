@@ -16,6 +16,15 @@ void addEqualVehicles(Road& road1, Road& road2, Road& road3, Road& road4, const 
 		road4.addVehicule(Vehicule());
 	}
 }
+void addEmptyAxis(Road& northRoad, Road& southRoad, Road& road3, Road& road4, const int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		northRoad.addVehicule(Vehicule());
+		southRoad.addVehicule(Vehicule());
+	}
+}
+
 
 int main()
 {
@@ -29,10 +38,10 @@ int main()
 	
 	// Choose one of the following scenarios:
 	// Scenario 1: Equal traffic on all roads (30 vehicles each = 120 total)
-	addEqualVehicles(northRoad, southRoad, eastRoad, westRoad, 30);
+	//addEqualVehicles(northRoad, southRoad, eastRoad, westRoad, 30);
 	
 	// Scenario 2: Empty East-West axis (60 vehicles each on N-S = 120 total)
-	// addEmptyAxis(northRoad, southRoad, eastRoad, westRoad, 60);
+	addEmptyAxis(northRoad, southRoad, eastRoad, westRoad, 60);
 	
 	// Scenario 3: Unbalanced traffic (50 vehicles N-S, 10 vehicles E-W = 120 total)
 	// addUnbalancedVehicles(northRoad, southRoad, eastRoad, westRoad, 50, 10);
@@ -45,24 +54,24 @@ int main()
 	roads.push_back(&eastRoad);
 	roads.push_back(&westRoad);
 	
-	/*PriorityIntersection intersection1{
+	PriorityIntersection intersection1{
 		"Intersection Principale",
 		roads
-	};*/
+	};
 	
 	// Type 2: Fixed Light (alternating cycle)
-	FixedCycleIntersection intersection1{
+	FixedCycleIntersection intersection2{
 		"Intersection Principale",
 		roads
 	};
 	
 	// Type 3: Four-Way Stop (one vehicle at a time)
-	/*FourStopIntersection intersection1{
+	FourStopIntersection intersection3{
 		"Intersection Principale",
 		roads
-	};*/
+	};
 	
-	system.addIntersection(&intersection1);
+	system.addIntersection(&intersection3);
 	
 	// Simulation
 	for (int turn = 1; system.hasVehicles(); turn++)

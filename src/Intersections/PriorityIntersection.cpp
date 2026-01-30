@@ -65,7 +65,9 @@ std::vector<Vehicule> PriorityIntersection::process()
 		if (direction & this->allowedDirections)
 		{
 			const auto processedVehicule = road->process();
-			processedVehicules.push_back(processedVehicule);
+			
+			if (processedVehicule.has_value())
+				processedVehicules.push_back(processedVehicule.value());
 		}
 	}
 	

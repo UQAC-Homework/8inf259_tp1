@@ -23,8 +23,11 @@ std::size_t Road::count() const
 	return this->vehicules.size();
 }
 
-Vehicule Road::process()
+std::optional<Vehicule> Road::process()
 {
+	if (this->vehicules.isEmpty())
+		return {};
+
 	const auto processedVehicule = this->vehicules.dequeue();
 
 	NextVehiculeVisitor visitor;
