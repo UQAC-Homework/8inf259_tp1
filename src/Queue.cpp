@@ -49,5 +49,5 @@ template <typename T>
 void Queue<T>::accept(IVisitor<T>& visitor)
 {
 	for (auto& element : elements)
-		visitor.visitElement(element);
+		visitor.visit(element);
 }
