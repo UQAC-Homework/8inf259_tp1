@@ -28,19 +28,7 @@ std::optional<Vehicule> Road::process()
 	if (this->vehicules.empty())
 		return {};
 
-	const auto processedVehicule = this->vehicules.dequeue();
-
-	NextVehiculeVisitor visitor;
-	visitor.clean();
-	this->accept(visitor);
-
-	// ReSharper disable once CppTooWideScopeInitStatement
-	const auto remainingVehicules = visitor.getRemainingVehicules();
-
-	for (const auto vehicule : remainingVehicules)
-		vehicule->waitTurn();
-	
-	return processedVehicule;
+	return this->vehicules.dequeue();
 }
 
 void Road::accept(IVisitor<Vehicule>& visitor)
