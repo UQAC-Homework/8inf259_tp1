@@ -12,7 +12,7 @@ public:
 	explicit Road(Direction direction);
 	
 	/// Gets the direction of this road
-	Direction getDirection() const;
+	[[nodiscard]] Direction getDirection() const;
 	
 	/// Processes a single vehicule
 	void process();
