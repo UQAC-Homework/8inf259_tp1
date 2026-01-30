@@ -1,7 +1,6 @@
 #include "../include/Road.h"
 
-#include <iostream>
-#include <ostream>
+#include "../include/Visitors/NextVehiculeVisitor.h"
 
 Road::Road(const Direction direction)
 {
@@ -25,27 +24,17 @@ std::size_t Road::count() const
 
 void Road::process()
 {
-	auto a = this->vehicules.dequeue();
-	std::cout << "Road processing: ";
+	auto nextVehicule = this->vehicules.dequeue();
 
-	switch (direction)
-	{
-	case NORTH:
-		std::cout << "NORTH";
-		break;
-	case SOUTH:
-		std::cout << "SOUTH";
-		break;
-	case EAST:
-		std::cout << "EAST";
-		break;
-	case WEST:
-		std::cout << "WEST";
-		break;
-	default: ;
-	}
+	NextVehiculeVisitor visitor;
+	visitor.clean();
+	this->accept(visitor);
 
-	std::cout << std::endl;
+	// ReSharper disable once CppTooWideScopeInitStatement
+	const auto remainingVehicules = visitor.getRemainingVehicules();
+
+	for (const auto vehicule : remainingVehicules)
+		vehicule->waitTurn();
 }
 
 void Road::accept(IVisitor<Vehicule>& visitor)
