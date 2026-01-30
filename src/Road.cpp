@@ -6,10 +6,6 @@
 Road::Road(const Direction direction)
 {
 	this->direction = direction;
-
-	vehicules.enqueue(Vehicule());
-	vehicules.enqueue(Vehicule());
-	vehicules.enqueue(Vehicule());
 }
 
 Direction Road::getDirection() const
@@ -17,8 +13,19 @@ Direction Road::getDirection() const
 	return this->direction;
 }
 
+void Road::addVehicule(const Vehicule vehicle)
+{
+	this->vehicules.enqueue(vehicle);
+}
+
+std::size_t Road::count() const
+{
+	return this->vehicules.size();
+}
+
 void Road::process()
 {
+	auto a = this->vehicules.dequeue();
 	std::cout << "Road processing: ";
 
 	switch (direction)
