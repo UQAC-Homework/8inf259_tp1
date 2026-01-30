@@ -55,7 +55,7 @@ bool Queue<T>::isEmpty() const
 }
 
 template <typename T>
-void Queue<T>::accept(const IVisitor<T>& visitor) const
+void Queue<T>::accept(IVisitor<T>& visitor) const
 {
 	for (const auto& element : elements)
 		visitor.visitElement(element);

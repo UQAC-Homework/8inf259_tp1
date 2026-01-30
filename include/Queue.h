@@ -3,7 +3,8 @@
 
 #include <list>
 
-#include "Visitor.h"
+#include "Vehicule.h"
+#include "Visitors/Visitor.h"
 
 /// Collection of objects as a first-in, first-out
 template <typename T>
@@ -32,9 +33,9 @@ public:
 	[[nodiscard]] bool isEmpty() const;
 	
 	/// Accepts a visitor to visit every object in the collection
-	void accept(const IVisitor<T>& visitor) const;
+	void accept(IVisitor<T>& visitor) const;
 };
 
-// template class Queue<int>;
+template class Queue<Vehicule>;
 
 #endif //INC_8INF259_TP1_QUEUE_H
