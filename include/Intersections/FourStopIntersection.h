@@ -11,9 +11,11 @@ class FourStopIntersection : public Intersection
 	/// Every road processed by this intersection
 	std::vector<Road*> roads;
 public:
-	explicit FourStopIntersection(const std::vector<Road*>& roads);
+	explicit FourStopIntersection(const std::string& name, const std::vector<Road*>& roads);
 
 	void process() override;
+	
+	[[nodiscard]] std::size_t count() const override;
 };
 
 #endif //INC_8INF259_TP1_FOURSTOPINTERSECTION_H

@@ -20,9 +20,11 @@ class PriorityIntersection : public Intersection
 	/// Counter of the current duration
 	int durationCounter;
 public:
-	explicit PriorityIntersection(const std::vector<Road*>& roads);
+	explicit PriorityIntersection(const std::string& name, const std::vector<Road*>& roads);
 
 	void process() override;
+	
+	[[nodiscard]] std::size_t count() const override;
 };
 
 

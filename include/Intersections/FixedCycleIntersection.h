@@ -24,9 +24,11 @@ class FixedCycleIntersection : public Intersection
 	/// Updates the traffic lights based off the next cycle
 	void updateCounter();
 public:
-	explicit FixedCycleIntersection(const std::vector<Road*>& roads);
+	explicit FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads);
 	
 	void process() override;
+	
+	[[nodiscard]] std::size_t count() const override;
 };
 
 #endif //INC_8INF259_TP1_FIXEDCYCLEINTERSECTION_H

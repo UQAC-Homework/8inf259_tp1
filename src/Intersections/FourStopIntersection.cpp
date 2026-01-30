@@ -27,7 +27,7 @@ Road* getHighestPriority(const std::vector<Road*>& roads)
 	return highestRoad;
 }
 
-FourStopIntersection::FourStopIntersection(const std::vector<Road*>& roads) : Intersection()
+FourStopIntersection::FourStopIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
 {
 	this->roads = roads;
 }
@@ -40,4 +40,14 @@ void FourStopIntersection::process()
 		return;
 
 	highPriorityRoad->process();
+}
+
+std::size_t FourStopIntersection::count() const
+{
+	size_t count = 0;
+
+	for (const auto road : this->roads)
+		count += road->count();
+	
+	return count;
 }

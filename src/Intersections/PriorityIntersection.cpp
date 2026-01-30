@@ -1,4 +1,5 @@
 #include "../../include/Intersections/PriorityIntersection.h"
+#include "../../include/Intersections/Intersection.h"
 
 Direction getDensestDirection(const std::vector<Road*>& roads)
 {
@@ -19,7 +20,7 @@ Direction getDensestDirection(const std::vector<Road*>& roads)
 	return densestDirection;
 }
 
-PriorityIntersection::PriorityIntersection(const std::vector<Road*>& roads) : Intersection()
+PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
 {
 	this->roads = roads;
 	this->allowedDirections = NONE;
@@ -64,4 +65,14 @@ void PriorityIntersection::process()
 	}
 	
 	this->durationCounter++;
+}
+
+std::size_t PriorityIntersection::count() const
+{
+	size_t count = 0;
+
+	for (const auto road : this->roads)
+		count += road->count();
+	
+	return count;
 }

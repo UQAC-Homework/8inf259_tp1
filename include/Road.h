@@ -6,10 +6,11 @@
 
 class Road
 {
+	std::string name;
 	Queue<Vehicule> vehicules;
 	Direction direction;
 public:
-	explicit Road(Direction direction);
+	explicit Road(const std::string& name, Direction direction);
 	
 	/// Gets the direction of this road
 	[[nodiscard]] Direction getDirection() const;

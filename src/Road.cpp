@@ -2,8 +2,9 @@
 
 #include "../include/Visitors/NextVehiculeVisitor.h"
 
-Road::Road(const Direction direction)
+Road::Road(const std::string& name, const Direction direction)
 {
+	this->name = name;
 	this->direction = direction;
 }
 
