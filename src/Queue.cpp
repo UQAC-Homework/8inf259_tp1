@@ -20,7 +20,7 @@ void Queue<T>::enqueue(T element)
 template <typename T>
 T Queue<T>::dequeue()
 {
-	if (isEmpty())
+	if (this->empty())
 		throw std::logic_error("Tried to dequeue while empty.");
 	
 	const auto element = elements.front();
@@ -32,7 +32,7 @@ T Queue<T>::dequeue()
 template <typename T>
 T Queue<T>::peek() const
 {
-	if (isEmpty())
+	if (this->empty())
 		throw std::logic_error("Tried to peek while empty.");
 	
 	const auto element = elements.front();

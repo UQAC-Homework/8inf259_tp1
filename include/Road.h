@@ -1,6 +1,7 @@
 #ifndef INC_8INF259_TP1_ROAD_H
 #define INC_8INF259_TP1_ROAD_H
 #include <optional>
+#include <string>
 
 #include "Direction.h"
 #include "Queue.h"

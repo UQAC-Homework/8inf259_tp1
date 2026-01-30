@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 
 #include "include/TrafficSystem.h"
@@ -6,17 +7,18 @@
 #include "include/Intersections/Intersection.h"
 #include "include/Intersections/PriorityIntersection.h"
 
-void addEqualVehicles(Road& road1, Road& road2, Road& road3, Road& road4, const int count)
+void addEqualVehicles(Road& northRoad, Road& southRoad, Road& eastRoad, Road& westRoad, const int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		road1.addVehicule(Vehicule());
-		road2.addVehicule(Vehicule());
-		road3.addVehicule(Vehicule());
-		road4.addVehicule(Vehicule());
+		northRoad.addVehicule(Vehicule());
+		southRoad.addVehicule(Vehicule());
+		eastRoad.addVehicule(Vehicule());
+		westRoad.addVehicule(Vehicule());
 	}
 }
-void addEmptyAxis(Road& northRoad, Road& southRoad, Road& road3, Road& road4, const int count)
+
+void addEmptyAxis(Road& northRoad, Road& southRoad, Road& eastRoad, Road& westRoad, const int count)
 {
 	for (int i = 0; i < count; i++)
 	{
@@ -25,6 +27,20 @@ void addEmptyAxis(Road& northRoad, Road& southRoad, Road& road3, Road& road4, co
 	}
 }
 
+void addUnbalancedVehicles(Road& northRoad, Road& southRoad, Road& eastRoad, Road& westRoad, const int count1, const int count2)
+{
+	for (int i = 0; i < count1; i++)
+	{
+		northRoad.addVehicule(Vehicule());
+		southRoad.addVehicule(Vehicule());
+	}
+	
+	for (int i = 0; i < count2; i++)
+	{
+		eastRoad.addVehicule(Vehicule());
+		westRoad.addVehicule(Vehicule());
+	}
+}
 
 int main()
 {
@@ -41,10 +57,10 @@ int main()
 	//addEqualVehicles(northRoad, southRoad, eastRoad, westRoad, 30);
 	
 	// Scenario 2: Empty East-West axis (60 vehicles each on N-S = 120 total)
-	addEmptyAxis(northRoad, southRoad, eastRoad, westRoad, 60);
+	//addEmptyAxis(northRoad, southRoad, eastRoad, westRoad, 60);
 	
 	// Scenario 3: Unbalanced traffic (50 vehicles N-S, 10 vehicles E-W = 120 total)
-	// addUnbalancedVehicles(northRoad, southRoad, eastRoad, westRoad, 50, 10);
+	addUnbalancedVehicles(northRoad, southRoad, eastRoad, westRoad, 50, 10);
 	
 	// Create intersection - choose one type:
 	// Type 1: Priority Light (dynamic based on traffic)
