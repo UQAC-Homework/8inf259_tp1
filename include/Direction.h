@@ -12,4 +12,7 @@ enum Direction : unsigned char
 	WEST = 1 << 3
 };
 
+/// Gets the opposite direction
+Direction operator!(Direction dir);
+
 #endif //INC_8INF259_TP1_DIRECTION_H
