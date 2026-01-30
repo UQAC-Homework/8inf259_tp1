@@ -1,5 +1,6 @@
 #include "../../include/Intersections/PriorityIntersection.h"
 #include "../../include/Intersections/Intersection.h"
+#include "../../include/Visitors/IncreaseWaitVisitor.h"
 
 Direction getDensestDirection(const std::vector<Road*>& roads)
 {
@@ -61,6 +62,7 @@ std::vector<Vehicule> PriorityIntersection::process()
 	this->updateCounter();
 	
 	std::vector<Vehicule> processedVehicules;
+	IncreaseWaitVisitor visitor;
 
 	for (const auto road : this->roads)
 	{
@@ -69,11 +71,15 @@ std::vector<Vehicule> PriorityIntersection::process()
 		
 		if (direction & this->allowedDirections)
 		{
+			// ReSharper disable once CppTooWideScopeInitStatement
 			const auto processedVehicule = road->process();
 			
 			if (processedVehicule.has_value())
 				processedVehicules.push_back(processedVehicule.value());
 		}
+		
+		visitor.clean();
+		road->accept(visitor);
 	}
 	
 	this->durationCounter++;

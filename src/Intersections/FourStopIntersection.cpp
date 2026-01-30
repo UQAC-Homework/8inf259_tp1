@@ -1,6 +1,7 @@
 #include "../../include/Intersections/FourStopIntersection.h"
 
 #include "../../include/Visitors/HighestWaitVisitor.h"
+#include "../../include/Visitors/IncreaseWaitVisitor.h"
 
 /// Gets the road with the highest priority
 Road* getHighestPriority(const std::vector<Road*>& roads)
@@ -35,16 +36,24 @@ FourStopIntersection::FourStopIntersection(const std::string& name, const std::v
 std::vector<Vehicule> FourStopIntersection::process()
 {
 	Road* highPriorityRoad = getHighestPriority(this->roads);
-		
-	if (highPriorityRoad == nullptr)
-		return {};
+	IncreaseWaitVisitor visitor;
+	std::vector<Vehicule> processedVehicules;
 
-	const auto processedVehicule = highPriorityRoad->process();
+	for (const auto road : this->roads)
+	{
+		if (road == highPriorityRoad)
+		{
+			const auto processedVehicule = highPriorityRoad->process();
+			
+			if (processedVehicule.has_value())
+				processedVehicules.push_back(processedVehicule.value());
+		}
+		
+		visitor.clean();
+		road->accept(visitor);
+	}
 	
-	if (!processedVehicule.has_value())
-		return {};
-	
-	return {processedVehicule.value()};
+	return processedVehicules;
 }
 
 std::size_t FourStopIntersection::count() const

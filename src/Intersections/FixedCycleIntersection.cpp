@@ -1,5 +1,7 @@
 #include "../../include/Intersections/FixedCycleIntersection.h"
 
+#include "../../include/Visitors/IncreaseWaitVisitor.h"
+
 void FixedCycleIntersection::updateCounter()
 {
 	this->cycleCounter++;
@@ -24,6 +26,7 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 	this->updateCounter();
 	
 	std::vector<Vehicule> processedVehicules;
+	IncreaseWaitVisitor visitor;
 
 	for (const auto road : this->roads)
 	{
@@ -37,6 +40,9 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 			if (processedVehicule.has_value())
 				processedVehicules.push_back(processedVehicule.value());
 		}
+		
+		visitor.clean();
+		road->accept(visitor);
 	}
 	
 	return processedVehicules;
