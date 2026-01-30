@@ -32,14 +32,15 @@ FourStopIntersection::FourStopIntersection(const std::string& name, const std::v
 	this->roads = roads;
 }
 
-void FourStopIntersection::process()
+std::vector<Vehicule> FourStopIntersection::process()
 {
 	Road* highPriorityRoad = getHighestPriority(this->roads);
 		
 	if (highPriorityRoad == nullptr)
-		return;
+		return {};
 
-	highPriorityRoad->process();
+	const auto processedVehicule = highPriorityRoad->process();
+	return {processedVehicule};
 }
 
 std::size_t FourStopIntersection::count() const

@@ -23,9 +23,9 @@ std::size_t Road::count() const
 	return this->vehicules.size();
 }
 
-void Road::process()
+Vehicule Road::process()
 {
-	auto nextVehicule = this->vehicules.dequeue();
+	const auto processedVehicule = this->vehicules.dequeue();
 
 	NextVehiculeVisitor visitor;
 	visitor.clean();
@@ -36,6 +36,8 @@ void Road::process()
 
 	for (const auto vehicule : remainingVehicules)
 		vehicule->waitTurn();
+	
+	return processedVehicule;
 }
 
 void Road::accept(IVisitor<Vehicule>& visitor)

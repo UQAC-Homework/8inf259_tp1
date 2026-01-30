@@ -19,9 +19,11 @@ FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const st
 	this->allowedDirections = NONE;
 }
 
-void FixedCycleIntersection::process()
+std::vector<Vehicule> FixedCycleIntersection::process()
 {
 	this->updateCounter();
+	
+	std::vector<Vehicule> processedVehicules;
 
 	for (const auto road : this->roads)
 	{
@@ -29,8 +31,13 @@ void FixedCycleIntersection::process()
 		const auto direction = road->getDirection();
 		
 		if (direction & this->allowedDirections)
-			road->process();
+		{
+			const auto processedVehicule = road->process();
+			processedVehicules.push_back(processedVehicule);
+		}
 	}
+	
+	return processedVehicules;
 }
 
 std::size_t FixedCycleIntersection::count() const

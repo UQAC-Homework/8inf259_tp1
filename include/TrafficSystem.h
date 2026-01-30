@@ -8,12 +8,13 @@
 class TrafficSystem
 {
 	std::vector<Intersection*> intersections;
+	std::vector<Vehicule> processedVehicules;
 public:
 	/// Adds an intersection to the system
 	void addIntersection(Intersection* intersection);
 	
 	/// Processes every object in the system
-	void process() const;
+	void process();
 	
 	/// Determines if the system has vehicles remaining
 	[[nodiscard]] bool hasVehicles() const;

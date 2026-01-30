@@ -22,7 +22,7 @@ public:
 	[[nodiscard]] std::size_t count() const;
 	
 	/// Processes a single vehicule
-	void process();
+	Vehicule process();
 	
 	/// Accepts a visitor to visit every vehicule
 	void accept(IVisitor<Vehicule>& visitor);

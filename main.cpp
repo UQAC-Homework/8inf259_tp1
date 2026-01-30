@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "include/TrafficSystem.h"
+#include "include/Intersections/FixedCycleIntersection.h"
+#include "include/Intersections/FourStopIntersection.h"
 #include "include/Intersections/Intersection.h"
 #include "include/Intersections/PriorityIntersection.h"
 
@@ -43,16 +45,16 @@ int main()
 	roads.push_back(&eastRoad);
 	roads.push_back(&westRoad);
 	
-	PriorityIntersection intersection1{
-		"Intersection Principale",
-		roads
-	};
-	
-	// Type 2: Fixed Light (alternating cycle)
-	/*FixedCycleIntersection intersection1{
+	/*PriorityIntersection intersection1{
 		"Intersection Principale",
 		roads
 	};*/
+	
+	// Type 2: Fixed Light (alternating cycle)
+	FixedCycleIntersection intersection1{
+		"Intersection Principale",
+		roads
+	};
 	
 	// Type 3: Four-Way Stop (one vehicle at a time)
 	/*FourStopIntersection intersection1{
@@ -74,8 +76,8 @@ int main()
 
 	std::cout << "========== Résultats finaux ==========" << std::endl;
 	std::cout << "Véhicules traités: " << system.getProcessedVehicles() << std::endl;
-	std::cout << "Temps d'attente total: " << system.getTotalWaitTime() << "tours" << std::endl;
-	std::cout << "Temps d'attente moyen: " << (system.getProcessedVehicles() > 0 ? (float)system.getTotalWaitTime() / system.getProcessedVehicles() : 0) << " tours/véhicule" << std::endl;
+	std::cout << "Temps d'attente total: " << system.getTotalWaitTime() << " tours" << std::endl;
+	std::cout << "Temps d'attente moyen: " << (system.getProcessedVehicles() > 0 ? static_cast<float>(system.getTotalWaitTime()) / system.getProcessedVehicles() : 0) << " tours / véhicule" << std::endl;
 
 	return 0;
 }

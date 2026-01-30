@@ -22,7 +22,7 @@ class PriorityIntersection : public Intersection
 public:
 	explicit PriorityIntersection(const std::string& name, const std::vector<Road*>& roads);
 
-	void process() override;
+	std::vector<Vehicule> process() override;
 	
 	[[nodiscard]] std::size_t count() const override;
 };

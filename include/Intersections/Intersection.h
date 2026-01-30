@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "../Vehicule.h"
+
 /// Class that represents a junction of roads
 class Intersection
 {
@@ -15,7 +17,7 @@ public:
 	virtual ~Intersection() = default;
 
 	/// Processes a turn of traffic
-	virtual void process() = 0;
+	virtual std::vector<Vehicule> process() = 0;
 	
 	/// Gets the amount of vehicules on this intersection
 	[[nodiscard]] virtual std::size_t count() const = 0;
