@@ -8,7 +8,7 @@ class IncreaseWaitVisitor : public IVisitor<Vehicule>
 {
 public:
 	void clean() override;
-	void visitElement(Vehicule& element) override;
+	void visit(Vehicule& element) override;
 };
 
 

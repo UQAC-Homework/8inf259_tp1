@@ -4,7 +4,7 @@ void IncreaseWaitVisitor::clean()
 {
 }
 
-void IncreaseWaitVisitor::visitElement(Vehicule& element)
+void IncreaseWaitVisitor::visit(Vehicule& element)
 {
 	element.waitTurn();
 }

@@ -1,6 +1,8 @@
 #ifndef INC_8INF259_TP1_IVISITOR_H
 #define INC_8INF259_TP1_IVISITOR_H
 
+// https://en.wikipedia.org/wiki/Visitor_pattern
+
 /// Class that allows to visit every element in a collection
 template <typename T>
 class IVisitor
@@ -12,7 +14,7 @@ public:
 	virtual void clean() = 0;
 
 	/// Visits the given element
-	virtual void visitElement(T& element) = 0;
+	virtual void visit(T& element) = 0;
 };
 
 #endif //INC_8INF259_TP1_IVISITOR_H
