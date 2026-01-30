@@ -2,17 +2,6 @@
 
 #include "../../include/Road.h"
 
-// NS
-// NS
-// NS
-// EW
-// EW
-// EW
-// NS
-// NS
-// NS
-// ...
-
 void FixedCycleIntersection::updateCounter()
 {
 	this->cycleCounter++;
