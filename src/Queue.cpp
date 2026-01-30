@@ -3,12 +3,6 @@
 #include <stdexcept>
 
 template <typename T>
-Queue<T>::Queue()
-{
-	elements = std::list<T>();
-}
-
-template <typename T>
 void Queue<T>::enqueue(T element)
 {
 	elements.push_back(element);

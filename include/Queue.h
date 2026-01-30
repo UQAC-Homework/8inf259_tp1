@@ -14,8 +14,6 @@ private:
 	/// Underlying collection of objects
 	std::list<T> elements;
 public:
-	Queue();
-
 	/// Adds an object to the end of the collection
 	void enqueue(T element);
 	
