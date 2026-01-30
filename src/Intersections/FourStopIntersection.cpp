@@ -27,6 +27,11 @@ Road* getHighestPriority(const std::vector<Road*>& roads)
 	return highestRoad;
 }
 
+FourStopIntersection::FourStopIntersection(const std::vector<Road*>& roads) : Intersection()
+{
+	this->roads = roads;
+}
+
 void FourStopIntersection::process()
 {
 	Road* highPriorityRoad = getHighestPriority(this->roads);

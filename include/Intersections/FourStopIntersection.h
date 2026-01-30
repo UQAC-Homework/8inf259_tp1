@@ -11,10 +11,7 @@ class FourStopIntersection : public Intersection
 	/// Every road processed by this intersection
 	std::vector<Road*> roads;
 public:
-	explicit FourStopIntersection(const std::vector<Road*>& roads) : Intersection()
-	{
-		this->roads = roads;
-	}
+	explicit FourStopIntersection(const std::vector<Road*>& roads);
 
 	void process() override;
 };
