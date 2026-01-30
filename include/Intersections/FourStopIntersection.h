@@ -1,5 +1,6 @@
 #ifndef INC_8INF259_TP1_FOURSTOPINTERSECTION_H
 #define INC_8INF259_TP1_FOURSTOPINTERSECTION_H
+#include <memory>
 #include <vector>
 
 #include "Intersection.h"
@@ -9,10 +10,10 @@
 class FourStopIntersection : public Intersection
 {
 	/// Every road processed by this intersection
-	std::vector<Road*> roads;
+	std::vector<std::shared_ptr<Road>> roads;
 
 public:
-	explicit FourStopIntersection(const std::string& name, const std::vector<Road*>& roads);
+	explicit FourStopIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads);
 
 	std::vector<Vehicule> process() override;
 

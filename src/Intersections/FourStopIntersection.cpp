@@ -4,13 +4,13 @@
 #include "../../include/Visitors/IncreaseWaitVisitor.h"
 
 /// Gets the road with the highest priority
-Road* getHighestPriority(const std::vector<Road*>& roads)
+std::optional<std::shared_ptr<Road>> getHighestPriority(const std::vector<std::shared_ptr<Road>>& roads)
 {
 	HighestWaitVisitor visitor;
-	Road* highestRoad = nullptr;
+	std::optional<std::shared_ptr<Road>> highestRoad = {};
 	int highestPriority = -1;
 
-	for (Road* road : roads)
+	for (const auto road : roads)
 	{
 		visitor.clean();
 		road->accept(visitor);
@@ -28,23 +28,24 @@ Road* getHighestPriority(const std::vector<Road*>& roads)
 	return highestRoad;
 }
 
-FourStopIntersection::FourStopIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(
-	name)
+FourStopIntersection::FourStopIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads) :
+	Intersection(
+		name)
 {
 	this->roads = roads;
 }
 
 std::vector<Vehicule> FourStopIntersection::process()
 {
-	Road* highPriorityRoad = getHighestPriority(this->roads);
+	const std::optional<std::shared_ptr<Road>> highPriorityRoad = getHighestPriority(this->roads);
 	IncreaseWaitVisitor visitor;
 	std::vector<Vehicule> processedVehicules;
 
 	for (const auto road : this->roads)
 	{
-		if (road == highPriorityRoad)
+		if (highPriorityRoad.has_value() && road == highPriorityRoad)
 		{
-			const auto processedVehicule = highPriorityRoad->process();
+			const auto processedVehicule = highPriorityRoad.value()->process();
 
 			if (processedVehicule.has_value())
 				processedVehicules.push_back(processedVehicule.value());
