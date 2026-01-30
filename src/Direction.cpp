@@ -24,6 +24,6 @@ Direction operator|(const Direction direction1, const Direction direction2)
 {
 	const int numDir1 = direction1;
 	const int numDir2 = direction2;
-	
+
 	return static_cast<Direction>(numDir1 | numDir2);
 }

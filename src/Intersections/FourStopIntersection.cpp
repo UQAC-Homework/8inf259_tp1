@@ -9,7 +9,7 @@ Road* getHighestPriority(const std::vector<Road*>& roads)
 	HighestWaitVisitor visitor;
 	Road* highestRoad = nullptr;
 	int highestPriority = -1;
-		
+
 	for (Road* road : roads)
 	{
 		visitor.clean();
@@ -17,18 +17,19 @@ Road* getHighestPriority(const std::vector<Road*>& roads)
 
 		// Get priority
 		const int priority = visitor.getHighestWait();
-			
+
 		if (priority <= highestPriority)
 			continue;
-			
+
 		highestRoad = road;
 		highestPriority = priority;
 	}
-		
+
 	return highestRoad;
 }
 
-FourStopIntersection::FourStopIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
+FourStopIntersection::FourStopIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(
+	name)
 {
 	this->roads = roads;
 }
@@ -44,15 +45,15 @@ std::vector<Vehicule> FourStopIntersection::process()
 		if (road == highPriorityRoad)
 		{
 			const auto processedVehicule = highPriorityRoad->process();
-			
+
 			if (processedVehicule.has_value())
 				processedVehicules.push_back(processedVehicule.value());
 		}
-		
+
 		visitor.clean();
 		road->accept(visitor);
 	}
-	
+
 	return processedVehicules;
 }
 
@@ -62,6 +63,6 @@ std::size_t FourStopIntersection::count() const
 
 	for (const auto road : this->roads)
 		count += road->count();
-	
+
 	return count;
 }

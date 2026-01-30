@@ -40,6 +40,6 @@ size_t TrafficSystem::getTotalWaitTime() const
 
 	for (auto vehicule : this->processedVehicules)
 		totalWaitTime += vehicule.getTurnsWaited();
-	
+
 	return totalWaitTime;
 }

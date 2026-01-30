@@ -9,19 +9,20 @@ class TrafficSystem
 {
 	std::vector<Intersection*> intersections;
 	std::vector<Vehicule> processedVehicules;
+
 public:
 	/// Adds an intersection to the system
 	void addIntersection(Intersection* intersection);
-	
+
 	/// Processes every object in the system
 	void process();
-	
+
 	/// Determines if the system has vehicles remaining
 	[[nodiscard]] bool hasVehicles() const;
-	
+
 	/// Returns the number of processed vehicles
 	[[nodiscard]] size_t getProcessedVehicles() const;
-	
+
 	/// Returns the total number of waited turns
 	[[nodiscard]] size_t getTotalWaitTime() const;
 };

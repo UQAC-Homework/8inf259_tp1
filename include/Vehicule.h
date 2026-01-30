@@ -5,12 +5,13 @@ class Vehicule
 {
 	/// Amount of turns this vehicule has waited at an intersection
 	int turnsWaited;
+
 public:
 	Vehicule();
 
 	/// Returns the amount of turns this vehicule has waited at an intersection
 	[[nodiscard]] int getTurnsWaited() const;
-	
+
 	/// Notifies this vehicule that it will have to wait a turn
 	void waitTurn();
 };

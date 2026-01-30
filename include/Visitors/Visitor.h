@@ -7,10 +7,10 @@ class IVisitor
 {
 public:
 	virtual ~IVisitor() = default;
-	
+
 	/// Cleans this visitor of the collected data
 	virtual void clean() = 0;
-	
+
 	/// Visits the given element
 	virtual void visitElement(T& element) = 0;
 };

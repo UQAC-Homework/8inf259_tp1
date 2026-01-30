@@ -13,21 +13,21 @@ class PriorityIntersection : public Intersection
 {
 	/// Every road processed by this intersection
 	std::vector<Road*> roads;
-	
+
 	/// Directions allowed to cross
 	Direction allowedDirections;
-	
+
 	/// Counter of the current duration
 	int durationCounter;
-	
+
 	/// Updates the traffic lights based off the next cycle
 	void updateCounter();
-	
+
 public:
 	explicit PriorityIntersection(const std::string& name, const std::vector<Road*>& roads);
 
 	std::vector<Vehicule> process() override;
-	
+
 	[[nodiscard]] std::size_t count() const override;
 };
 

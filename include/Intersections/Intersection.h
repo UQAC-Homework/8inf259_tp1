@@ -9,6 +9,7 @@
 class Intersection
 {
 	std::string name;
+
 public:
 	explicit Intersection(const std::string& name)
 	{
@@ -18,7 +19,7 @@ public:
 
 	/// Processes a turn of traffic
 	virtual std::vector<Vehicule> process() = 0;
-	
+
 	/// Gets the amount of vehicules on this intersection
 	[[nodiscard]] virtual std::size_t count() const = 0;
 };

@@ -17,17 +17,18 @@ class FixedCycleIntersection : public Intersection
 
 	/// Directions allowed to cross
 	Direction allowedDirections;
-	
+
 	/// Counter of the current cycle
 	int cycleCounter = -1;
-	
+
 	/// Updates the traffic lights based off the next cycle
 	void updateCounter();
+
 public:
 	explicit FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads);
-	
+
 	std::vector<Vehicule> process() override;
-	
+
 	[[nodiscard]] std::size_t count() const override;
 };
 

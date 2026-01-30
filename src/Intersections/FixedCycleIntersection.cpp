@@ -5,17 +5,18 @@
 void FixedCycleIntersection::updateCounter()
 {
 	this->cycleCounter++;
-	
+
 	if (this->cycleCounter >= NORTH_SOUTH_CYCLE + EAST_WEST_CYCLE)
 		this->cycleCounter = 0;
-	
+
 	if (this->cycleCounter < NORTH_SOUTH_CYCLE)
 		this->allowedDirections = NORTH | SOUTH;
 	else
 		this->allowedDirections = EAST | WEST;
 }
 
-FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
+FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(
+	name)
 {
 	this->roads = roads;
 	this->allowedDirections = NONE;
@@ -24,7 +25,7 @@ FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const st
 std::vector<Vehicule> FixedCycleIntersection::process()
 {
 	this->updateCounter();
-	
+
 	std::vector<Vehicule> processedVehicules;
 	IncreaseWaitVisitor visitor;
 
@@ -32,19 +33,19 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 	{
 		// ReSharper disable once CppTooWideScopeInitStatement
 		const auto direction = road->getDirection();
-		
+
 		if (direction & this->allowedDirections)
 		{
 			const auto processedVehicule = road->process();
-			
+
 			if (processedVehicule.has_value())
 				processedVehicules.push_back(processedVehicule.value());
 		}
-		
+
 		visitor.clean();
 		road->accept(visitor);
 	}
-	
+
 	return processedVehicules;
 }
 
@@ -54,6 +55,6 @@ std::size_t FixedCycleIntersection::count() const
 
 	for (const auto road : this->roads)
 		count += road->count();
-	
+
 	return count;
 }

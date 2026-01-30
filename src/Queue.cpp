@@ -13,10 +13,10 @@ T Queue<T>::dequeue()
 {
 	if (this->empty())
 		throw std::logic_error("Tried to dequeue while empty.");
-	
+
 	const auto element = elements.front();
 	elements.pop_front();
-	
+
 	return element;
 }
 
@@ -25,9 +25,9 @@ T Queue<T>::peek() const
 {
 	if (this->empty())
 		throw std::logic_error("Tried to peek while empty.");
-	
+
 	const auto element = elements.front();
-	
+
 	return element;
 }
 
@@ -41,7 +41,7 @@ template <typename T>
 bool Queue<T>::empty() const
 {
 	const auto size = this->size();
-	
+
 	return size == 0;
 }
 

@@ -10,11 +10,12 @@ class FourStopIntersection : public Intersection
 {
 	/// Every road processed by this intersection
 	std::vector<Road*> roads;
+
 public:
 	explicit FourStopIntersection(const std::string& name, const std::vector<Road*>& roads);
 
 	std::vector<Vehicule> process() override;
-	
+
 	[[nodiscard]] std::size_t count() const override;
 };
 
