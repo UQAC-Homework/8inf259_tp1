@@ -14,7 +14,8 @@ public:
 	explicit Intersection(const std::string& name)
 	{
 		this->name = name;
-	};
+	}
+
 	virtual ~Intersection() = default;
 
 	/// Processes a turn of traffic
