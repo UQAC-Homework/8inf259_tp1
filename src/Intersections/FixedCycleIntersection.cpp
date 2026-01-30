@@ -1,5 +1,7 @@
 #include "../../include/Intersections/FixedCycleIntersection.h"
 
+#include <numeric>
+
 #include "../../include/Visitors/IncreaseWaitVisitor.h"
 
 void FixedCycleIntersection::updateCounter()
@@ -50,10 +52,13 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 
 std::size_t FixedCycleIntersection::count() const
 {
-	size_t count = 0;
-
-	for (const auto road : this->roads)
-		count += road->count();
-
-	return count;
+	return std::accumulate(
+		this->roads.begin(),
+		this->roads.end(),
+		0,
+		[](const std::size_t& sum, const std::shared_ptr<Road>& road)
+		{
+			return sum + road->count();
+		}
+	);
 }

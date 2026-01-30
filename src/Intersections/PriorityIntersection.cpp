@@ -1,4 +1,7 @@
 #include "../../include/Intersections/PriorityIntersection.h"
+
+#include <numeric>
+
 #include "../../include/Intersections/Intersection.h"
 #include "../../include/Visitors/IncreaseWaitVisitor.h"
 
@@ -87,10 +90,13 @@ std::vector<Vehicule> PriorityIntersection::process()
 
 std::size_t PriorityIntersection::count() const
 {
-	size_t count = 0;
-
-	for (const auto road : this->roads)
-		count += road->count();
-
-	return count;
+	return std::accumulate(
+		this->roads.begin(),
+		this->roads.end(),
+		0,
+		[](const std::size_t& sum, const std::shared_ptr<Road>& road)
+		{
+			return sum + road->count();
+		}
+	);
 }
