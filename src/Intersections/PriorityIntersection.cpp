@@ -27,7 +27,7 @@ void PriorityIntersection::updateCounter()
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 		
-		this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
+		this->allowedDirections = currentDensestDirection | !currentDensestDirection;
 		this->durationCounter = 0;
 	}
 	else if (this->durationCounter >= MINIMAL_DURATION)
@@ -37,7 +37,7 @@ void PriorityIntersection::updateCounter()
 		
 		if (currentDensestDirection != this->allowedDirections)
 		{
-			this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
+			this->allowedDirections = currentDensestDirection | !currentDensestDirection;
 			this->durationCounter = 0;
 		}
 	}
@@ -45,7 +45,7 @@ void PriorityIntersection::updateCounter()
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 		
-		this->allowedDirections = static_cast<Direction>(currentDensestDirection | !currentDensestDirection);
+		this->allowedDirections = currentDensestDirection | !currentDensestDirection;
 		this->durationCounter = 0;
 	}
 }

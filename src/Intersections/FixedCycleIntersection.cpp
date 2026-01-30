@@ -10,9 +10,9 @@ void FixedCycleIntersection::updateCounter()
 		this->cycleCounter = 0;
 	
 	if (this->cycleCounter < NORTH_SOUTH_CYCLE)
-		this->allowedDirections = static_cast<Direction>(NORTH | SOUTH);
+		this->allowedDirections = NORTH | SOUTH;
 	else
-		this->allowedDirections = static_cast<Direction>(EAST | WEST);
+		this->allowedDirections = EAST | WEST;
 }
 
 FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<Road*>& roads) : Intersection(name)
