@@ -72,3 +72,11 @@ std::size_t FourStopIntersection::count() const
 		}
 	);
 }
+
+void FourStopIntersection::display(std::ostream& output) const
+{
+	output << "Intersection \"" << this->name << "\":" << std::endl;
+	
+	for (const auto& road : this->roads)
+		road->display(output);
+}

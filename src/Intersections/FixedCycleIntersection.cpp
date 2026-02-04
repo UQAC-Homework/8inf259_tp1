@@ -62,3 +62,11 @@ std::size_t FixedCycleIntersection::count() const
 		}
 	);
 }
+
+void FixedCycleIntersection::display(std::ostream& output) const
+{
+	output << "Intersection \"" << this->name << "\":" << std::endl;
+	
+	for (const auto& road : this->roads)
+		road->display(output);
+}

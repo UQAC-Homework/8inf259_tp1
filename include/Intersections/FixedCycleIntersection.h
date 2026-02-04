@@ -31,6 +31,8 @@ public:
 	std::vector<Vehicle> process() override;
 
 	[[nodiscard]] std::size_t count() const override;
+	
+	void display(std::ostream& output) const override;
 };
 
 #endif //INC_8INF259_TP1_FIXEDCYCLEINTERSECTION_H
