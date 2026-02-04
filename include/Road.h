@@ -7,7 +7,7 @@
 #include "Queue.h"
 #include "Vehicle.h"
 
-class Road
+class Road : public IClient<Vehicle>
 {
 	std::string name;
 	Queue<Vehicle> vehicles;
@@ -28,11 +28,11 @@ public:
 	/// Processes a single vehicle
 	std::optional<Vehicle> process();
 
-	/// Accepts a visitor to visit every vehicle
-	void accept(IVisitor<Vehicle>& visitor);
-	
 	/// Displays this road
 	void display(std::ostream& output) const;
+	
+	void accept(IVisitor<Vehicle>& visitor) const override;
+	void accept(IVisitor<Vehicle>& visitor) override;
 };
 
 // TODO: Vehicle* getNextVehicle() : Retourne et retire le premier véhicule.

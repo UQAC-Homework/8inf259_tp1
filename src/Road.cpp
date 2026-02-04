@@ -32,11 +32,6 @@ std::optional<Vehicle> Road::process()
 	return this->vehicles.dequeue();
 }
 
-void Road::accept(IVisitor<Vehicle>& visitor)
-{
-	vehicles.accept(visitor);
-}
-
 void Road::display(std::ostream& output) const
 {
 	output << "\tRoute \"" << this->name << "\":" << std::endl;
@@ -46,4 +41,14 @@ void Road::display(std::ostream& output) const
 	visitor.clean();
 	visitor.setOutput(output);
 	this->vehicles.accept(visitor);
+}
+
+void Road::accept(IVisitor<Vehicle>& visitor) const
+{
+	vehicles.accept(visitor);
+}
+
+void Road::accept(IVisitor<Vehicle>& visitor)
+{
+	vehicles.accept(visitor);
 }
