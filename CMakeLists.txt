@@ -28,4 +28,5 @@ add_executable(8inf259_tp1 main.cpp
         include/Visitors/IncreaseWaitVisitor.h
         src/Visitors/DisplayVehicleVisitor.cpp
         include/Visitors/DisplayVehicleVisitor.h
+        include/Visitors/Client.h
 )

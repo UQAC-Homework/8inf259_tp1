@@ -4,13 +4,12 @@
 #include <list>
 
 #include "Vehicle.h"
-#include "Visitors/Visitor.h"
+#include "Visitors/Client.h"
 
 /// Collection of objects as a first-in, first-out
 template <typename T>
-class Queue
+class Queue : public IClient<T>
 {
-private:
 	/// Underlying collection of objects
 	std::list<T> elements;
 
@@ -29,12 +28,10 @@ public:
 
 	/// Determines if the collection is empty
 	[[nodiscard]] bool empty() const;
-
-	/// Accepts a visitor that visits every object in the collection
-	void accept(IVisitor<T>& visitor) const;
 	
-	/// Accepts a visitor that modifies every object in the collection
-	void accept(IVisitor<T>& visitor);
+	void accept(IVisitor<T>& visitor) const override;
+	
+	void accept(IVisitor<T>& visitor) override;
 };
 
 template class Queue<Vehicle>;
