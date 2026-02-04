@@ -1,7 +1,6 @@
 #include "../include/TrafficSystem.h"
 
 #include <algorithm>
-#include <numeric>
 
 void TrafficSystem::addIntersection(Intersection* intersection)
 {
