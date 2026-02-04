@@ -25,8 +25,9 @@ public:
 
 	/// Returns the total number of waited turns
 	[[nodiscard]] size_t getTotalWaitTime() const;
+	
+	/// Displays this system
+	void display(std::ostream& output) const;
 };
-
-// TODO: void displayState() : Affiche l'état de toutes les intersections.
 
 #endif //INC_8INF259_TP1_TRAFFICSYSTEM_H

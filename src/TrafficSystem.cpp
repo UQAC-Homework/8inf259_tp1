@@ -41,3 +41,9 @@ size_t TrafficSystem::getTotalWaitTime() const
 
 	return totalWaitTime;
 }
+
+void TrafficSystem::display(std::ostream& output) const
+{
+	for (const auto intersection : this->intersections)
+		intersection->display(output);
+}
