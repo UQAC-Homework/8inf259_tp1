@@ -30,7 +30,10 @@ public:
 	/// Determines if the collection is empty
 	[[nodiscard]] bool empty() const;
 
-	/// Accepts a visitor to visit every object in the collection
+	/// Accepts a visitor that visits every object in the collection
+	void accept(IVisitor<T>& visitor) const;
+	
+	/// Accepts a visitor that modifies every object in the collection
 	void accept(IVisitor<T>& visitor);
 };
 
