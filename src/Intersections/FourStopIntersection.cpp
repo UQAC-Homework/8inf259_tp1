@@ -12,10 +12,11 @@ std::optional<std::shared_ptr<Road>> getHighestPriority(const std::vector<std::s
 	std::optional<std::shared_ptr<Road>> highestRoad = {};
 	int highestPriority = -1;
 
-	for (const auto road : roads)
+	for (const auto& road : roads)
 	{
 		visitor.clean();
-		road->accept(visitor);
+		const Road& r = *road;
+		r.accept(visitor);
 
 		// Get priority
 		const int priority = visitor.getHighestWait();
