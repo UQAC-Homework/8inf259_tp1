@@ -60,11 +60,11 @@ PriorityIntersection::PriorityIntersection(const std::string& name, const std::v
 	this->durationCounter = 0;
 }
 
-std::vector<Vehicule> PriorityIntersection::process()
+std::vector<Vehicle> PriorityIntersection::process()
 {
 	this->updateCounter();
 
-	std::vector<Vehicule> processedVehicules;
+	std::vector<Vehicle> processedVehicles;
 	IncreaseWaitVisitor visitor;
 
 	for (const auto& road : this->roads)
@@ -73,10 +73,10 @@ std::vector<Vehicule> PriorityIntersection::process()
 
 		if (direction & this->allowedDirections)
 		{
-			const auto processedVehicule = road->process();
+			const auto processedVehicle = road->process();
 
-			if (processedVehicule.has_value())
-				processedVehicules.push_back(processedVehicule.value());
+			if (processedVehicle.has_value())
+				processedVehicles.push_back(processedVehicle.value());
 		}
 
 		visitor.clean();
@@ -85,7 +85,7 @@ std::vector<Vehicule> PriorityIntersection::process()
 
 	this->durationCounter++;
 
-	return processedVehicules;
+	return processedVehicles;
 }
 
 std::size_t PriorityIntersection::count() const

@@ -27,7 +27,7 @@ class PriorityIntersection : public Intersection
 public:
 	explicit PriorityIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads);
 
-	std::vector<Vehicule> process() override;
+	std::vector<Vehicle> process() override;
 
 	[[nodiscard]] std::size_t count() const override;
 };

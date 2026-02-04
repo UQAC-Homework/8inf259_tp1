@@ -5,11 +5,11 @@ void HighestWaitVisitor::clean()
 	highestWait = LOWEST_WAIT;
 }
 
-void HighestWaitVisitor::visit(Vehicule& element)
+void HighestWaitVisitor::visit(Vehicle& element)
 {
 }
 
-void HighestWaitVisitor::visit(const Vehicule& element)
+void HighestWaitVisitor::visit(const Vehicle& element)
 {
 	const auto currentWait = element.getTurnsWaited();
 

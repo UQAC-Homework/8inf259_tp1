@@ -8,7 +8,7 @@
 class TrafficSystem
 {
 	std::vector<Intersection*> intersections;
-	std::vector<Vehicule> processedVehicules;
+	std::vector<Vehicle> processedVehicles;
 
 public:
 	/// Adds an intersection to the system

@@ -37,27 +37,27 @@ FourStopIntersection::FourStopIntersection(const std::string& name, const std::v
 	this->roads = roads;
 }
 
-std::vector<Vehicule> FourStopIntersection::process()
+std::vector<Vehicle> FourStopIntersection::process()
 {
 	const std::optional<std::shared_ptr<Road>> highPriorityRoad = getHighestPriority(this->roads);
 	IncreaseWaitVisitor visitor;
-	std::vector<Vehicule> processedVehicules;
+	std::vector<Vehicle> processedVehicles;
 
 	for (const auto& road : this->roads)
 	{
 		if (highPriorityRoad.has_value() && road == highPriorityRoad)
 		{
-			const auto processedVehicule = highPriorityRoad.value()->process();
+			const auto processedVehicle = highPriorityRoad.value()->process();
 
-			if (processedVehicule.has_value())
-				processedVehicules.push_back(processedVehicule.value());
+			if (processedVehicle.has_value())
+				processedVehicles.push_back(processedVehicle.value());
 		}
 
 		visitor.clean();
 		road->accept(visitor);
 	}
 
-	return processedVehicules;
+	return processedVehicles;
 }
 
 std::size_t FourStopIntersection::count() const

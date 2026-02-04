@@ -10,10 +10,10 @@ add_executable(8inf259_tp1 main.cpp
         include/Intersections/Intersection.h
         include/Intersections/FourStopIntersection.h
         include/Road.h
-        include/Vehicule.h
+        include/Vehicle.h
         include/Visitors/HighestWaitVisitor.h
         src/Road.cpp
-        src/Vehicule.cpp
+        src/Vehicle.cpp
         src/Intersections/FourStopIntersection.cpp
         src/Visitors/HighestWaitVisitor.cpp
         include/Intersections/FixedCycleIntersection.h

@@ -3,7 +3,7 @@
 
 #include <list>
 
-#include "Vehicule.h"
+#include "Vehicle.h"
 #include "Visitors/Visitor.h"
 
 /// Collection of objects as a first-in, first-out
@@ -37,6 +37,6 @@ public:
 	void accept(IVisitor<T>& visitor);
 };
 
-template class Queue<Vehicule>;
+template class Queue<Vehicle>;
 
 #endif //INC_8INF259_TP1_QUEUE_H

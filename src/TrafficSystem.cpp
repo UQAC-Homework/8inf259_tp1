@@ -13,8 +13,8 @@ void TrafficSystem::process()
 	{
 		const auto currentProcessedVehicles = intersection->process();
 
-		for (auto currentVehicule : currentProcessedVehicles)
-			this->processedVehicules.push_back(currentVehicule);
+		for (auto currentVehicle : currentProcessedVehicles)
+			this->processedVehicles.push_back(currentVehicle);
 	}
 }
 
@@ -29,15 +29,15 @@ bool TrafficSystem::hasVehicles() const
 
 size_t TrafficSystem::getProcessedVehicles() const
 {
-	return this->processedVehicules.size();
+	return this->processedVehicles.size();
 }
 
 size_t TrafficSystem::getTotalWaitTime() const
 {
 	size_t totalWaitTime = 0;
 
-	for (auto vehicule : this->processedVehicules)
-		totalWaitTime += vehicule.getTurnsWaited();
+	for (auto vehicle : this->processedVehicles)
+		totalWaitTime += vehicle.getTurnsWaited();
 
 	return totalWaitTime;
 }

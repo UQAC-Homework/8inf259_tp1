@@ -11,25 +11,27 @@ Direction Road::getDirection() const
 	return this->direction;
 }
 
-void Road::addVehicule(const Vehicule vehicle)
+void Road::addVehicle(const Vehicle vehicle)
 {
-	this->vehicules.enqueue(vehicle);
+	this->vehicles.enqueue(vehicle);
 }
 
 std::size_t Road::count() const
 {
-	return this->vehicules.size();
+	return this->vehicles.size();
 }
 
-std::optional<Vehicule> Road::process()
+std::optional<Vehicle> Road::process()
 {
-	if (this->vehicules.empty())
+	if (this->vehicles.empty())
 		return {};
 
 	return this->vehicules.dequeue();
+	// TODO: Check if this can be returned as a pointer
+	return this->vehicles.dequeue();
 }
 
-void Road::accept(IVisitor<Vehicule>& visitor)
+void Road::accept(IVisitor<Vehicle>& visitor)
 {
-	vehicules.accept(visitor);
+	vehicles.accept(visitor);
 }

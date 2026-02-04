@@ -4,11 +4,11 @@ void IncreaseWaitVisitor::clean()
 {
 }
 
-void IncreaseWaitVisitor::visit(const Vehicule& element)
+void IncreaseWaitVisitor::visit(const Vehicle& element)
 {
 }
 
-void IncreaseWaitVisitor::visit(Vehicule& element)
+void IncreaseWaitVisitor::visit(Vehicle& element)
 {
 	element.waitTurn();
 }

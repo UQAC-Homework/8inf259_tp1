@@ -24,11 +24,11 @@ FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const st
 	this->allowedDirections = NONE;
 }
 
-std::vector<Vehicule> FixedCycleIntersection::process()
+std::vector<Vehicle> FixedCycleIntersection::process()
 {
 	this->updateCounter();
 
-	std::vector<Vehicule> processedVehicules;
+	std::vector<Vehicle> processedVehicles;
 	IncreaseWaitVisitor visitor;
 
 	for (const auto& road : this->roads)
@@ -37,17 +37,17 @@ std::vector<Vehicule> FixedCycleIntersection::process()
 
 		if (direction & this->allowedDirections)
 		{
-			const auto processedVehicule = road->process();
+			const auto processedVehicle = road->process();
 
-			if (processedVehicule.has_value())
-				processedVehicules.push_back(processedVehicule.value());
+			if (processedVehicle.has_value())
+				processedVehicles.push_back(processedVehicle.value());
 		}
 
 		visitor.clean();
 		road->accept(visitor);
 	}
 
-	return processedVehicules;
+	return processedVehicles;
 }
 
 std::size_t FixedCycleIntersection::count() const

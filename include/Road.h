@@ -5,12 +5,12 @@
 
 #include "Direction.h"
 #include "Queue.h"
-#include "Vehicule.h"
+#include "Vehicle.h"
 
 class Road
 {
 	std::string name;
-	Queue<Vehicule> vehicules;
+	Queue<Vehicle> vehicles;
 	Direction direction;
 
 public:
@@ -19,17 +19,19 @@ public:
 	/// Gets the direction of this road
 	[[nodiscard]] Direction getDirection() const;
 
-	/// Adds a new vehicule to this road
-	void addVehicule(Vehicule vehicle);
+	/// Adds a new vehicle to this road
+	void addVehicle(Vehicle vehicle);
 
-	/// Gets the amount of vehicules on this road
+	/// Gets the amount of vehicles on this road
 	[[nodiscard]] std::size_t count() const;
 
-	/// Processes a single vehicule
-	std::optional<Vehicule> process();
+	/// Processes a single vehicle
+	std::optional<Vehicle> process();
 
 	/// Accepts a visitor to visit every vehicule
 	void accept(IVisitor<Vehicule>& visitor);
+	/// Accepts a visitor to visit every vehicle
+	void accept(IVisitor<Vehicle>& visitor);
 };
 
 // TODO: Vehicle* getNextVehicle() : Retourne et retire le premier véhicule.
