@@ -7,6 +7,10 @@ void HighestWaitVisitor::clean()
 
 void HighestWaitVisitor::visit(Vehicule& element)
 {
+}
+
+void HighestWaitVisitor::visit(const Vehicule& element)
+{
 	const auto currentWait = element.getTurnsWaited();
 
 	if (currentWait <= highestWait)

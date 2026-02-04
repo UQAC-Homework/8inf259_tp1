@@ -15,6 +15,9 @@ public:
 
 	/// Visits the given element
 	virtual void visit(T& element) = 0;
+	
+	/// Visits the given element and modifies it
+	virtual void visit(const T& element) = 0;
 };
 
 #endif //INC_8INF259_TP1_IVISITOR_H
