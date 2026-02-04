@@ -6,8 +6,6 @@
 
 #define LOWEST_WAIT (-1)
 
-/// Visitor that finds the highest wait time of a vehicule
-class HighestWaitVisitor : public IVisitor<Vehicule>
 /// Visitor that finds the highest wait time of a vehicle
 class HighestWaitVisitor : public IVisitor<Vehicle>
 {
