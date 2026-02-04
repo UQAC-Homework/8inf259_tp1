@@ -28,13 +28,13 @@ public:
 	/// Processes a single vehicle
 	std::optional<Vehicle> process();
 
-	/// Accepts a visitor to visit every vehicule
-	void accept(IVisitor<Vehicule>& visitor);
 	/// Accepts a visitor to visit every vehicle
 	void accept(IVisitor<Vehicle>& visitor);
+	
+	/// Displays this road
+	void display(std::ostream& output) const;
 };
 
 // TODO: Vehicle* getNextVehicle() : Retourne et retire le premier véhicule.
-// TODO: void display() : Affiche l'état de la route.
 
 #endif //INC_8INF259_TP1_ROAD_H

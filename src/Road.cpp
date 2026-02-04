@@ -1,5 +1,7 @@
 #include "../include/Road.h"
 
+#include "../include/Visitors/DisplayVehicleVisitor.h"
+
 Road::Road(const std::string& name, const Direction direction)
 {
 	this->name = name;
@@ -26,7 +28,6 @@ std::optional<Vehicle> Road::process()
 	if (this->vehicles.empty())
 		return {};
 
-	return this->vehicules.dequeue();
 	// TODO: Check if this can be returned as a pointer
 	return this->vehicles.dequeue();
 }
@@ -34,4 +35,15 @@ std::optional<Vehicle> Road::process()
 void Road::accept(IVisitor<Vehicle>& visitor)
 {
 	vehicles.accept(visitor);
+}
+
+void Road::display(std::ostream& output) const
+{
+	output << "\tRoute \"" << this->name << "\":" << std::endl;
+
+	DisplayVehicleVisitor visitor;
+	
+	visitor.clean();
+	visitor.setOutput(output);
+	this->vehicles.accept(visitor);
 }
