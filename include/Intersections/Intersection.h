@@ -8,6 +8,7 @@
 /// Class that represents a junction of roads
 class Intersection
 {
+protected:
 	std::string name;
 
 public:
