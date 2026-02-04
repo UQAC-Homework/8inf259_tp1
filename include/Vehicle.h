@@ -1,6 +1,6 @@
 #ifndef INC_8INF259_TP1_VEHICLE_H
 #define INC_8INF259_TP1_VEHICLE_H
-#include <iosfwd>
+#include <ostream>
 
 class Vehicle
 {
