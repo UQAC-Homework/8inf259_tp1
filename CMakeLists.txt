@@ -32,4 +32,5 @@ add_executable(8inf259_tp1 main.cpp
         include/uuid.h
         src/Factories/VehicleFactory.cpp
         include/Factories/VehicleFactory.h
+        include/RoadSpreader.h
 )
