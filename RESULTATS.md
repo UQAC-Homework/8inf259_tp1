@@ -2,11 +2,11 @@
 
 ## Tableau des résultats
 
-| Configuration | PRIORITY_LIGHT | FIXED_LIGHT | FOUR_WAY_STOP |
-|---------------|----------------|-------------|---------------|
-| EVEN          | 29.5           | 29.5        | 59.5          |
-| ONEWAY        | 29.5           | 58.0        | 59.5          |
-| UNBALANCED    | 29.5           | 41.9        | 59.5          |
+| Configuration \ Type | `PRIORITY_LIGHT` | `FIXED_LIGHT` | `FOUR_WAY_STOP` |
+|----------------------|------------------|---------------|-----------------|
+| `EVEN`               | 29.5             | 29.5          | 59.5            |
+| `ONEWAY`             | 29.5             | 58.0          | 59.5            |
+| `UNBALANCED`         | 29.5             | 41.9          | 59.5            |
 
 *Temps d'attente moyen en tours par véhicule (120 véhicules totaux)*
 
