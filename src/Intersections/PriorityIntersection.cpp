@@ -52,12 +52,18 @@ void PriorityIntersection::updateCounter()
 	}
 }
 
-PriorityIntersection::PriorityIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads) : Intersection(
-	name)
+PriorityIntersection::PriorityIntersection(
+	const std::string& name,
+	const std::vector<std::shared_ptr<Road>>& roads,
+	const size_t minimalDuration,
+	const size_t maximalDuration
+) : Intersection(name)
 {
 	this->roads = roads;
 	this->allowedDirections = NONE;
 	this->durationCounter = 0;
+	this->minimalDuration = minimalDuration;
+	this->maximalDuration = maximalDuration;
 }
 
 std::vector<Vehicle> PriorityIntersection::process()
