@@ -2,16 +2,24 @@
 #define INC_8INF259_TP1_VEHICLE_H
 #include <ostream>
 
+#include "Direction.h"
+
 class Vehicle
 {
 	/// Identifier of this vehicle
 	std::string id;
+	
+	/// Type of this vehicle
+	std::string type;
+	
+	/// Direction of this vehicle
+	Direction direction;
 
 	/// Amount of turns this vehicle has waited at an intersection
 	int turnsWaited;
 
 public:
-	Vehicle();
+	Vehicle(const std::string& type, Direction direction);
 
 	/// Returns the amount of turns this vehicle has waited at an intersection
 	[[nodiscard]] int getTurnsWaited() const;
@@ -22,8 +30,5 @@ public:
 	/// Displays this vehicle
 	void display(std::ostream& output) const;
 };
-
-// TODO: std::string type : Type de véhicule ("Voiture", "Camion", "Moto").
-// TODO: std::string destination : Direction de destination ("Nord", "Sud", "Est", "Ouest").
 
 #endif //INC_8INF259_TP1_VEHICLE_H
