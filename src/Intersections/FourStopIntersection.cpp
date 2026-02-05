@@ -48,7 +48,7 @@ std::vector<Vehicle> FourStopIntersection::process()
 	{
 		if (highPriorityRoad.has_value() && road == highPriorityRoad)
 		{
-			const auto processedVehicle = highPriorityRoad.value()->process();
+			const auto processedVehicle = road->process();
 
 			if (processedVehicle.has_value())
 				processedVehicles.push_back(processedVehicle.value());
