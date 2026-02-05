@@ -26,14 +26,14 @@ Direction getDensestDirection(const std::vector<std::shared_ptr<Road>>& roads)
 
 void PriorityIntersection::updateCounter()
 {
-	if (this->durationCounter >= MAXIMAL_DURATION)
+	if (this->durationCounter >= this->maximalDuration)
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 
 		this->allowedDirections = currentDensestDirection | !currentDensestDirection;
 		this->durationCounter = 0;
 	}
-	else if (this->durationCounter >= MINIMAL_DURATION)
+	else if (this->durationCounter >= this->minimalDuration)
 	{
 		const auto currentDensestDirection = getDensestDirection(this->roads);
 
