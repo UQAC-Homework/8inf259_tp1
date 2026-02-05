@@ -4,6 +4,9 @@
 
 class Vehicle
 {
+	/// Identifier of this vehicle
+	std::string id;
+
 	/// Amount of turns this vehicle has waited at an intersection
 	int turnsWaited;
 
@@ -20,7 +23,6 @@ public:
 	void display(std::ostream& output) const;
 };
 
-// TODO: std::string id : Identifiant unique du véhicule (ex: "V001").
 // TODO: std::string type : Type de véhicule ("Voiture", "Camion", "Moto").
 // TODO: std::string destination : Direction de destination ("Nord", "Sud", "Est", "Ouest").
 
