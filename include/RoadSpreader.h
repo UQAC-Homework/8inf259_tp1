@@ -78,4 +78,29 @@ inline void spreadUnbalanced(const std::vector<std::shared_ptr<Road>>& roads, co
 	}
 }
 
+inline void spreadUnbalancedOnDirections(const std::vector<std::shared_ptr<Road>>& roads, const size_t northCount, const size_t westCount)
+{
+	for (int i = 0; i < northCount; i++)
+	{
+		for (const auto& road : roads)
+		{
+			const auto direction = road->getDirection();
+			
+			if (direction & NORTH)
+				road->addVehicle(VehicleFactory::create(road->getDirection()));
+		}
+	}
+	
+	for (int i = 0; i < westCount; i++)
+	{
+		for (const auto& road : roads)
+		{
+			const auto direction = road->getDirection();
+			
+			if (direction & WEST)
+				road->addVehicle(VehicleFactory::create(road->getDirection()));
+		}
+	}
+}
+
 #endif //INC_8INF259_TP1_ROADSPREADER_H
