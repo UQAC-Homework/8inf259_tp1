@@ -3,38 +3,37 @@
 
 #include <list>
 
-#include "Visitor.h"
+#include "Vehicle.h"
+#include "Visitors/Client.h"
 
 /// Collection of objects as a first-in, first-out
 template <typename T>
-class Queue
+class Queue : public IClient<T>
 {
-private:
 	/// Underlying collection of objects
 	std::list<T> elements;
-public:
-	Queue();
-	~Queue();
 
+public:
 	/// Adds an object to the end of the collection
 	void enqueue(T element);
-	
+
 	/// Removes and returns the object at the beginning of the collection
 	[[nodiscard]] T dequeue();
-	
+
 	/// Returns the object at the beginning of the collection
 	[[nodiscard]] T peek() const;
-	
+
 	/// Gets the number of elements contained in the collection
 	[[nodiscard]] std::size_t size() const;
-	
+
 	/// Determines if the collection is empty
-	[[nodiscard]] bool isEmpty() const;
+	[[nodiscard]] bool empty() const;
 	
-	/// Accepts a visitor to visit every object in the collection
-	void accept(const IVisitor<T>& visitor) const;
+	void accept(IVisitor<T>& visitor) const override;
+	
+	void accept(IVisitor<T>& visitor) override;
 };
 
-// template class Queue<int>;
+template class Queue<Vehicle>;
 
 #endif //INC_8INF259_TP1_QUEUE_H

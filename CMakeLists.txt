@@ -4,15 +4,32 @@ project(8inf259_tp1)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(8inf259_tp1 main.cpp
-        src/Vehicule.cpp
-        include/Vehicule.h
-        include/TrafficLightState.h
-        include/IntersectionType.h
         src/Queue.cpp
         include/Queue.h
-        include/Visitor.h
-        src/Road.cpp
+        include/Visitors/Visitor.h
+        include/Intersections/Intersection.h
+        include/Intersections/FourStopIntersection.h
         include/Road.h
-        src/Intersection.cpp
-        include/Intersection.h
+        include/Vehicle.h
+        include/Visitors/HighestWaitVisitor.h
+        src/Road.cpp
+        src/Vehicle.cpp
+        src/Intersections/FourStopIntersection.cpp
+        src/Visitors/HighestWaitVisitor.cpp
+        include/Intersections/FixedCycleIntersection.h
+        src/Intersections/FixedCycleIntersection.cpp
+        include/Direction.h
+        src/Direction.cpp
+        src/Intersections/PriorityIntersection.cpp
+        include/Intersections/PriorityIntersection.h
+        src/TrafficSystem.cpp
+        include/TrafficSystem.h
+        src/Visitors/IncreaseWaitVisitor.cpp
+        include/Visitors/IncreaseWaitVisitor.h
+        src/Visitors/DisplayVehicleVisitor.cpp
+        include/Visitors/DisplayVehicleVisitor.h
+        include/Visitors/Client.h
+        include/uuid.h
+        src/Factories/VehicleFactory.cpp
+        include/Factories/VehicleFactory.h
 )

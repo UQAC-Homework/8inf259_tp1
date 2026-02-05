@@ -3,15 +3,6 @@
 #include <stdexcept>
 
 template <typename T>
-Queue<T>::Queue()
-{
-	elements = std::list<T>();
-}
-
-template <typename T>
-Queue<T>::~Queue() = default;
-
-template <typename T>
 void Queue<T>::enqueue(T element)
 {
 	elements.push_back(element);
@@ -20,23 +11,23 @@ void Queue<T>::enqueue(T element)
 template <typename T>
 T Queue<T>::dequeue()
 {
-	if (isEmpty())
+	if (this->empty())
 		throw std::logic_error("Tried to dequeue while empty.");
-	
+
 	const auto element = elements.front();
 	elements.pop_front();
-	
+
 	return element;
 }
 
 template <typename T>
 T Queue<T>::peek() const
 {
-	if (isEmpty())
+	if (this->empty())
 		throw std::logic_error("Tried to peek while empty.");
-	
+
 	const auto element = elements.front();
-	
+
 	return element;
 }
 
@@ -47,16 +38,23 @@ std::size_t Queue<T>::size() const
 }
 
 template <typename T>
-bool Queue<T>::isEmpty() const
+bool Queue<T>::empty() const
 {
 	const auto size = this->size();
-	
+
 	return size == 0;
 }
 
 template <typename T>
-void Queue<T>::accept(const IVisitor<T>& visitor) const
+void Queue<T>::accept(IVisitor<T>& visitor) const
 {
 	for (const auto& element : elements)
-		visitor.visitElement(element);
+		visitor.visit(element);
+}
+
+template <typename T>
+void Queue<T>::accept(IVisitor<T>& visitor)
+{
+	for (auto& element : elements)
+		visitor.visit(element);
 }

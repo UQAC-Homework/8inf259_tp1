@@ -1,31 +1,38 @@
 #ifndef INC_8INF259_TP1_ROAD_H
 #define INC_8INF259_TP1_ROAD_H
-#include "Queue.h"
-#include "Vehicule.h"
+#include <optional>
+#include <string>
 
-/// Class representing a collection of vehicules
-class Road
+#include "Direction.h"
+#include "Queue.h"
+#include "Vehicle.h"
+
+class Road : public IClient<Vehicle>
 {
-private:
-	std::string name; // TODO: Implement
-	std::string direction; // TODO: Implement
-	
-	Queue<Vehicule> vehicules;
+	std::string name;
+	Queue<Vehicle> vehicles;
+	Direction direction;
+
 public:
-	Road();
+	explicit Road(const std::string& name, Direction direction);
+
+	/// Gets the direction of this road
+	[[nodiscard]] Direction getDirection() const;
+
+	/// Adds a new vehicle to this road
+	void addVehicle(const Vehicle& vehicle);
+
+	/// Gets the amount of vehicles on this road
+	[[nodiscard]] std::size_t count() const;
+
+	/// Processes a single vehicle
+	std::optional<Vehicle> process();
+
+	/// Displays this road
+	void display(std::ostream& output) const;
 	
-	/// Adds a vehicule on this road
-	void addVehicule(const Vehicule& vehicule);
-	
-	/// Removes and returns the first vehicule
-	[[nodiscard]] Vehicule* getNextVehicule();
-	
-	/// Gets the number of vehicules on this road
-	[[nodiscard]] std::size_t size() const;
-	
-	void increaseAllWaitTimes(); // TODO: Implement
-	
-	void display(); // TODO: Implement
+	void accept(IVisitor<Vehicle>& visitor) const override;
+	void accept(IVisitor<Vehicle>& visitor) override;
 };
 
 #endif //INC_8INF259_TP1_ROAD_H
