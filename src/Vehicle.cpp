@@ -17,5 +17,5 @@ void Vehicle::waitTurn()
 
 void Vehicle::display(std::ostream& output) const
 {
-	//output << "\t\tVéhicule \"" << this->id << "\" (direction: " << this-> Nord, attente: 59 tours";
+	output << "\t\tVéhicule \"id\" (Type: type; Direction: direction; Attente: " << this->getTurnsWaited() << " tours)" << std::endl;
 }
