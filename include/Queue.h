@@ -1,7 +1,7 @@
 #ifndef INC_8INF259_TP1_QUEUE_H
 #define INC_8INF259_TP1_QUEUE_H
 
-#include <list>
+#include <memory>
 
 #include "Vehicle.h"
 #include "Visitors/Client.h"
@@ -10,8 +10,18 @@
 template <typename T>
 class Queue : public IClient<T>
 {
-	/// Underlying collection of objects
-	std::list<T> elements;
+	struct Node
+	{
+		T element;
+		std::shared_ptr<Node> next;
+		std::shared_ptr<Node> prev;
+	};
+
+	/// Head of the linked list
+	std::shared_ptr<Node> head;
+	
+	/// Tail of the linked list
+	std::shared_ptr<Node> tail;
 
 public:
 	/// Adds an object to the end of the collection

@@ -44,16 +44,16 @@ std::vector<Vehicle> FourStopIntersection::process()
 	IncreaseWaitVisitor visitor;
 	std::vector<Vehicle> processedVehicles;
 
+	if (highPriorityRoad.has_value())
+	{
+		const auto processedVehicle = highPriorityRoad->get()->process();
+
+		if (processedVehicle.has_value())
+			processedVehicles.push_back(processedVehicle.value());
+	}
+
 	for (const auto& road : this->roads)
 	{
-		if (highPriorityRoad.has_value() && road == highPriorityRoad)
-		{
-			const auto processedVehicle = highPriorityRoad.value()->process();
-
-			if (processedVehicle.has_value())
-				processedVehicles.push_back(processedVehicle.value());
-		}
-
 		visitor.clean();
 		road->accept(visitor);
 	}
