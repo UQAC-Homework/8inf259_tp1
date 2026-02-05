@@ -35,6 +35,4 @@ public:
 	void accept(IVisitor<Vehicle>& visitor) override;
 };
 
-// TODO: Vehicle* getNextVehicle() : Retourne et retire le premier véhicule.
-
 #endif //INC_8INF259_TP1_ROAD_H
