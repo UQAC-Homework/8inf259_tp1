@@ -4,12 +4,10 @@
 #include "Visitor.h"
 #include "../Vehicle.h"
 
-#define LOWEST_WAIT (-1)
-
 /// Visitor that finds the highest wait time of a vehicle
 class HighestWaitVisitor : public IVisitor<Vehicle>
 {
-	int highestWait = LOWEST_WAIT;
+	int highestWait = -1;
 
 public:
 	void clean() override;

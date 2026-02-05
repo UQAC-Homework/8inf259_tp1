@@ -2,7 +2,7 @@
 
 void HighestWaitVisitor::clean()
 {
-	highestWait = LOWEST_WAIT;
+	highestWait = -1;
 }
 
 void HighestWaitVisitor::visit(Vehicle& element)
