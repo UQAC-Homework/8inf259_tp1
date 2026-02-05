@@ -8,20 +8,26 @@ void FixedCycleIntersection::updateCounter()
 {
 	this->cycleCounter++;
 
-	if (this->cycleCounter >= NORTH_SOUTH_CYCLE + EAST_WEST_CYCLE)
+	if (this->cycleCounter >= this->northSouthCycle + this->eastWestCycle)
 		this->cycleCounter = 0;
 
-	if (this->cycleCounter < NORTH_SOUTH_CYCLE)
+	if (this->cycleCounter < this->northSouthCycle)
 		this->allowedDirections = NORTH | SOUTH;
 	else
 		this->allowedDirections = EAST | WEST;
 }
 
-FixedCycleIntersection::FixedCycleIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads) : Intersection(
-	name)
+FixedCycleIntersection::FixedCycleIntersection(
+	const std::string& name,
+	const std::vector<std::shared_ptr<Road>>& roads,
+	const size_t northSouthCycle,
+	const size_t eastWestCycle
+) : Intersection(name)
 {
 	this->roads = roads;
 	this->allowedDirections = NONE;
+	this->northSouthCycle = northSouthCycle;
+	this->eastWestCycle = eastWestCycle;
 }
 
 std::vector<Vehicle> FixedCycleIntersection::process()

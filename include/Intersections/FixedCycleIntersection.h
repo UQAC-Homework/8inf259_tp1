@@ -7,9 +7,6 @@
 #include "../Direction.h"
 #include "../Road.h"
 
-#define NORTH_SOUTH_CYCLE 3
-#define EAST_WEST_CYCLE 3
-
 /// Intersection that uses a fixed cycle
 class FixedCycleIntersection : public Intersection
 {
@@ -21,13 +18,23 @@ class FixedCycleIntersection : public Intersection
 
 	/// Counter of the current cycle
 	int cycleCounter = -1;
+	
+	/// Amount of cycle allowed for north and south
+	size_t northSouthCycle;
+	
+	/// Amount of cycle allowed for east and west
+	size_t eastWestCycle;
 
 	/// Updates the traffic lights based off the next cycle
 	void updateCounter();
 
 public:
-	explicit FixedCycleIntersection(const std::string& name, const std::vector<std::shared_ptr<Road>>& roads);
-
+	explicit FixedCycleIntersection(const std::string& name,
+		const std::vector<std::shared_ptr<Road>>& roads,
+		size_t northSouthCycle,
+		size_t eastWestCycle
+	);
+	
 	std::vector<Vehicle> process() override;
 
 	[[nodiscard]] std::size_t count() const override;
