@@ -30,4 +30,6 @@ add_executable(8inf259_tp1 main.cpp
         include/Visitors/DisplayVehicleVisitor.h
         include/Visitors/Client.h
         include/uuid.h
+        src/Factories/VehicleFactory.cpp
+        include/Factories/VehicleFactory.h
 )
