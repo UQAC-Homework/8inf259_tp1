@@ -20,7 +20,7 @@ public:
 	[[nodiscard]] Direction getDirection() const;
 
 	/// Adds a new vehicle to this road
-	void addVehicle(Vehicle vehicle);
+	void addVehicle(const Vehicle& vehicle);
 
 	/// Gets the amount of vehicles on this road
 	[[nodiscard]] std::size_t count() const;

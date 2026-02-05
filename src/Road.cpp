@@ -13,7 +13,7 @@ Direction Road::getDirection() const
 	return this->direction;
 }
 
-void Road::addVehicle(const Vehicle vehicle)
+void Road::addVehicle(const Vehicle& vehicle)
 {
 	this->vehicles.enqueue(vehicle);
 }

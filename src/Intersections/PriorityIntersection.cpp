@@ -10,7 +10,7 @@ Direction getDensestDirection(const std::vector<std::shared_ptr<Road>>& roads)
 	Direction densestDirection = NONE;
 	std::size_t highestDensity = 0;
 
-	for (const auto road : roads)
+	for (const auto& road : roads)
 	{
 		const auto density = road->count();
 
