@@ -3,12 +3,10 @@
 #include "Visitor.h"
 #include "../Vehicle.h"
 
-#define INVALID_OUTPUT nullptr
-
 /// Visitor that displays every vehicle
 class DisplayVehicleVisitor : public IVisitor<Vehicle>
 {
-	std::ostream* _output = INVALID_OUTPUT;
+	std::ostream* _output = nullptr;
 public:
 	/// Sets the output for every element
 	void setOutput(std::ostream& output);
