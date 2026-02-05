@@ -28,16 +28,16 @@ int main()
 
 	// Choose one of the following scenarios:
 	// Scenario 1: Spread traffic evenly on all roads
-	//spreadEvenly(roads, 120);
+	spreadEvenly(roads, 120);
 
 	// Scenario 2: Spread traffic evenly on all roads in the given directions
-	spreadOnDirections(roads, NORTH | SOUTH, 120);
+	//spreadOnDirections(roads, NORTH | SOUTH, 120);
 
 	// Scenario 3: Unbalanced traffic (50 vehicles N-S, 10 vehicles E-W = 120 total)
 	//spreadUnbalanced(roads, 50, 10);
 	
 	// Scenario 4: Unbalanced traffic (60 vehicles N, 60 vehicles W)
-	//spreadUnbalancedOnDirections(roads, 60, 60);
+	//spreadUnbalancedOnDirections(roads, 110, 10);
 
 	// Create intersection - choose one type:
 	// Type 1: Priority Light (dynamic based on traffic)
