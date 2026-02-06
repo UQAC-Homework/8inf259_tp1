@@ -12,6 +12,12 @@
 
 int main()
 {
+#ifdef _WIN32
+	// Fix UTF-8 encoding on Windows
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
+#endif
+	
 	TrafficSystem system;
 
 	// Create roads
@@ -37,7 +43,7 @@ int main()
 	//spreadUnbalanced(roads, 50, 10);
 	
 	// Scenario 4: Unbalanced traffic (60 vehicles N, 60 vehicles W)
-	//spreadUnbalancedOnDirections(roads, 110, 10);
+	//spreadUnbalancedOnDirections(roads, 60, 60);
 
 	// Create intersection - choose one type:
 	// Type 1: Priority Light (dynamic based on traffic)
