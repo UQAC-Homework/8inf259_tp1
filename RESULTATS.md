@@ -96,19 +96,11 @@ Cet algorithme est très limité par la gestion unidirectionnelle. Le nombre de 
 | 29.5   | 29.5     | 29.5         |
 
 ### Complexité algorithmique
+#### Complexité en temps
+Les algorithmes ont une complexité de `O(nm)`. Afin de mettre à jour le nombre de tours attendus, il faut parcourir chaque voiture (`m`) de chaque route (`n`). Bien que certains algorithmes passent davantage de temps (tel que `PRIORITY_LIGHT` avec `O(2nm)`), il reste qu'aucun ne dépasse la complexité donnée.
 
-#### Priority Light
-
-[Analyse de la complexité en temps et en espace de votre implémentation]
-
-#### Fixed Light
-
-[Analyse de la complexité en temps et en espace de votre implémentation]
-
-#### Four Way Stop
-
-[Analyse de la complexité en temps et en espace de votre implémentation]
+#### Complexité en espace
+Les algorithmes ont une complexité de `O(n + m)`. Afin de stocker les données, il faut un objet par route (`n`) et par véhicule (`m`). Cependant, le nombre de véhicules est pour toutes les routes et non pour chaque route.  
 
 ### Conclusion
-
-[Synthèse de vos résultats: quel type d'intersection est le plus efficace et dans quelles situations]
+Dans la majorité des situations, le type `PRIORITY_LIGHT` est le plus efficace. Ce type demande de faire une analyse du traffic afin de pouvoir correctement calibrer les durées. Une fois cette calibration faite, ce type surpasse tous les autres types.
